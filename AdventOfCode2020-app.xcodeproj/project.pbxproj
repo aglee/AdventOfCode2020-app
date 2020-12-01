@@ -20,6 +20,7 @@
 		7368FE982576B9A300FAFAA3 /* topSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368FE972576B9A300FAFAA3 /* topSort.swift */; };
 		7368FE9E2576BAA500FAFAA3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368FE9D2576BAA500FAFAA3 /* Node.swift */; };
 		7368FEA62576BAD500FAFAA3 /* NodeLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368FEA52576BAD500FAFAA3 /* NodeLookup.swift */; };
+		7368FEB72576CC5400FAFAA3 /* lcm-gcd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368FEB62576CC5400FAFAA3 /* lcm-gcd.swift */; };
 		7373BC342575CC0500622514 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7373BC332575CC0500622514 /* AppDelegate.swift */; };
 		7373BC362575CC0700622514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7373BC352575CC0700622514 /* Assets.xcassets */; };
 		7373BC392575CC0700622514 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7373BC372575CC0700622514 /* MainMenu.xib */; };
@@ -67,6 +68,7 @@
 		7368FE9C2576B9B700FAFAA3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7368FE9D2576BAA500FAFAA3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		7368FEA52576BAD500FAFAA3 /* NodeLookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeLookup.swift; sourceTree = "<group>"; };
+		7368FEB62576CC5400FAFAA3 /* lcm-gcd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "lcm-gcd.swift"; sourceTree = "<group>"; };
 		7373BC302575CC0500622514 /* AdventOfCode2020-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AdventOfCode2020-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7373BC332575CC0500622514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7373BC352575CC0700622514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				7368FE962576B9A300FAFAA3 /* Graph */,
 				734361442575EBB400FA8D7F /* Grid */,
 				734361382575E9B900FA8D7F /* Intcode */,
+				7368FEB62576CC5400FAFAA3 /* lcm-gcd.swift */,
 				738C023C25763FFB007338D5 /* Util.swift */,
 			);
 			path = Common;
@@ -379,6 +382,7 @@
 				7343611E2575E81B00FA8D7F /* Day01.swift in Sources */,
 				734361302575E94E00FA8D7F /* IntcodeVM.swift in Sources */,
 				734361312575E94E00FA8D7F /* Grid.swift in Sources */,
+				7368FEB72576CC5400FAFAA3 /* lcm-gcd.swift in Sources */,
 				7368FE982576B9A300FAFAA3 /* topSort.swift in Sources */,
 				738C023D25763FFB007338D5 /* Util.swift in Sources */,
 				7373BC632575CD0200622514 /* MainWindowController.swift in Sources */,
