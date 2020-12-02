@@ -16,7 +16,7 @@ class Day01: DayNN {
 	}
 
 	init() {
-		super.init(dayNumber: 1, title: "Report Repair")
+		super.init("Report Repair")
 	}
 
 	// MARK: - Solving

@@ -16,7 +16,7 @@ class Day02: DayNN {
 	}
 
 	init() {
-		super.init(dayNumber: 1, title: "Report Repair")
+		super.init("Password Philosophy")
 	}
 
 	// MARK: - Solving

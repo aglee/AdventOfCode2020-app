@@ -11,10 +11,11 @@ import Foundation
 ///
 /// This is treated as an abstract base class -- it should not be instantiated directly.
 /// There is one subclass for each day of Advent of Code.  The subclasses are named
-/// `Day01`, `Day02`, etc., through `Day25`.
+/// `Day01`, `Day02`, etc., through `Day25`.  Note that it's important to stick to this
+/// naming convention, as our `dayNumber` property is derived from the class name.
 ///
 /// For each subclass a number of text files are included as resources in the application
-/// bundle:
+/// bundle.  These files also have a naming convention:
 ///
 /// - Description of Part 1 of the puzzle (e.g. `Day01_Part1.txt`), copied from the website.
 /// - Description of Part 2 of the puzzle (e.g. `Day01_Part2.txt`), copied from the website.
@@ -24,8 +25,10 @@ import Foundation
 /// - The "real" input (e.g. `Day01_Input.txt`).
 /// - Discussion of my solution (e.g. `Day01_Discussion.md`).
 class DayNN: NSObject {
-	var dayNumber: Int
 	var title: String
+
+	/// We derive the day number from the last 2 characters of the class name.
+	var dayNumber: Int { return Int(self.className.suffix(2))! }
 
 	/// Description of Part 1 of this day's puzzle.
 	var part1PuzzleText: String { return puzzleText(puzzlePart: 1) }
@@ -47,8 +50,7 @@ class DayNN: NSObject {
 		return stringFromTextResource(resourceName)
 	}
 
-	init(dayNumber: Int, title: String) {
-		self.dayNumber = dayNumber
+	init(_ title: String) {
 		self.title = title
 	}
 
