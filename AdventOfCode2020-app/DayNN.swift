@@ -78,11 +78,11 @@ class DayNN: NSObject {
 	// MARK: - Testing
 
 	final func testPart1() -> Bool {
-		doTests(expectedPart1TestResults, solvePart1)
+		return doTests(expectedPart1TestResults, solvePart1)
 	}
 
 	final func testPart2() -> Bool {
-		doTests(expectedPart2TestResults, solvePart2)
+		return doTests(expectedPart2TestResults, solvePart2)
 	}
 
 	// MARK: - NSObject overrides
@@ -98,9 +98,8 @@ class DayNN: NSObject {
 		return linesFromTextResource(resourceName)
 	}
 
-	private func testInputLines(fileNumber: Int) -> [String] {
-		let resourceName = String(format: "Day%02d_TestInput%02d.txt", dayNumber, fileNumber)
-		return linesFromTextResource(resourceName)
+	private func testInputFileName(fileNumber: Int) -> String {
+		return String(format: "Day%02d_TestInput%02d.txt", dayNumber, fileNumber)
 	}
 
 	/// Reads text from a resource in the application bundle.
@@ -121,13 +120,27 @@ class DayNN: NSObject {
 		return stringFromTextResource(resourceName)
 	}
 
+	/// Returns true if all tests pass.  Stops and returns false if any test fails.
 	private func doTests(_ tests: [Int: String], _ solve: ([String])->String) -> Bool {
-
-		for testNumber in tests.keys.sorted() {
-			let testResult = solve(testInputLines(fileNumber: testNumber))
-			print("expected '\(tests[testNumber]!)', got '\(testResult)'")
+		if tests.count == 0 {
+			print("No tests were specified.")
+			return true
 		}
 
+		// Run our puzzle solution on each specified testing input file, and compare the
+		// result to the expected result.
+		for testFileNumber in tests.keys.sorted() {
+			let inputFileName = testInputFileName(fileNumber: testFileNumber)
+			let expectedResult = tests[testFileNumber]!
+			let testResult = solve(linesFromTextResource(inputFileName))
+			if testResult == expectedResult {
+				print("Test using \(inputFileName) -- PASSED.")
+			} else {
+				print("Test using \(inputFileName) -- FAILED.")
+				print("  Expected '\(expectedResult)', got '\(testResult)'.")
+				return false
+			}
+		}
 		return true
 	}
 }

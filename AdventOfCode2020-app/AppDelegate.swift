@@ -13,16 +13,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	var mainWC: MainWindowController!
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
+// For the moment there is no UI.  The intention is to implement the UI over time.
 //		mainWC = MainWindowController(windowNibName: "MainWindowController")
 //		mainWC.window?.display()
 
-		// For the moment there is no UI.  The intention is to implement the UI over time.
-		let day = Day02()
-		let _ = day.testPart1()
-		let _ = day.testPart2()
-		print("Part 1 solution: \(day.solvePart1())")
-		print("Part 2 solution: \(day.solvePart2())")
+		doOneDay(Day02())
 		NSApplication.shared.terminate(nil)
+	}
+
+	// MARK: - Private stuff
+
+	private func doOneDay(_ day: DayNN) {
+		print("===== Day \(day.dayNumber): \(day.title) =====")
+		print()
+		print("--- Part 1 ---")
+		if day.testPart1() {
+			print("Answer for Part 1: \(day.solvePart1())")
+		}
+		print()
+
+		print("--- Part 2 ---")
+		if day.testPart2() {
+			print("Answer for Part 2: \(day.solvePart2())")
+		}
+		print()
 	}
 }
 
