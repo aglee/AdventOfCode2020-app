@@ -1,10 +1,3 @@
-//
-//  Day01.swift
-//  AdventOfCode2020-app
-//
-//  Created by Andy Lee on 11/30/20.
-//
-
 import Foundation
 
 class Day01: DayNN {

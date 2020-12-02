@@ -1,7 +1,10 @@
-# Day 1 - Report Repair
+# Day 2 - Password Philosophy
 
-<https://adventofcode.com/2020/day/1>
+<https://adventofcode.com/2020/day/2>
 
-Solved both parts using nested loops through the given array of numbers.  Part 1 used 2 nested loops.  Part 2 used 3 nested loops.
+Couple of occasions to use the pattern `myArray.filter( myTestCondition ).count`.  Used it to count occurrences of a character in a string (I suspect I overlooked a Foundation function that could have done it for me), and used it to count valid passwords.
+
+I got the right answers by accident.  I had a bug where I was using a 0-based index even though the puzzle instructions explicitly remind us to use a 1-based index.  But this was offset by a bug in my parsing where I'd left a leading space in front of every password. :)
+
 
 
