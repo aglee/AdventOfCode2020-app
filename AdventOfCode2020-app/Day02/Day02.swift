@@ -18,10 +18,12 @@ struct PasswordRule {
 	}
 
 	/// In Part 2 we use the two given numbers as character positions within the password.
+	///
+	/// **NOTE:** They are **1-based** indexes, not 0-based.
 	func isValidPasswordPart2(_ s: String) -> Bool {
 		let inputLetters = s.map { String($0) }
-		let minMatches = (inputLetters[minCount] == requiredLetter)
-		let maxMatches = (inputLetters[maxCount] == requiredLetter)
+		let minMatches = (inputLetters[minCount - 1] == requiredLetter)
+		let maxMatches = (inputLetters[maxCount - 1] == requiredLetter)
 		return (minMatches && !maxMatches) || (!minMatches && maxMatches)
 	}
 }
@@ -65,13 +67,13 @@ class Day02: DayNN {
 	/// Input lines look like this: "1-3 x: abcde".
 	private func parseInputLine(_ s: String) -> (rule: PasswordRule, password: String) {
 		// If the input is "1-3 x: abcde", then:
-		// - `rule`     will be "1-3 x"
-		// - `password` will be "abcde"
-		let ruleAndPassword = s.split(separator: ":")
+		// - `ruleString` will be "1-3 x"
+		// - `password`   will be "abcde"
+		let ruleAndPassword = s.components(separatedBy: ": ")
 		let (ruleString, password) = (ruleAndPassword[0], String(ruleAndPassword[1]))
 
-		// - `range`  will be "1-3"
-		// - `letter` will be "x"
+		// - `rangeString` will be "1-3"
+		// - `letter`      will be "x"
 		let rangeAndLetter = ruleString.split(separator: " ")
 		let (rangeString, letter) = (rangeAndLetter[0], String(rangeAndLetter[1]))
 
