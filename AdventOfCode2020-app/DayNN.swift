@@ -9,16 +9,17 @@ import Foundation
 
 /// Represents one day of [Advent of Code](https://adventofcode.com).
 ///
-/// This is treated as an abstract base class.  There is one subclass for each day of
-/// Advent of Code.  The subclasses are named `Day01`, `Day02`, etc., through `Day25`.
+/// This is treated as an abstract base class -- it should not be instantiated directly.
+/// There is one subclass for each day of Advent of Code.  The subclasses are named
+/// `Day01`, `Day02`, etc., through `Day25`.
 ///
 /// For each subclass a number of text files are included as resources in the application
 /// bundle:
 ///
 /// - Description of Part 1 of the puzzle (e.g. `Day01_Part1.txt`), copied from the website.
 /// - Description of Part 2 of the puzzle (e.g. `Day01_Part2.txt`), copied from the website.
-/// - One or more test inputs (e.g. `Day01_Test01Input.txt`, `Day01_Test02Input.txt`, etc.).
-///   The corresponding outputs are coded into the `expectedPart1TestResults` and
+/// - One or more test inputs (e.g. `Day01_TestInput01.txt`, `Day01_TestInput02.txt`, etc.).
+///   The corresponding expected outputs are coded into the `expectedPart1TestResults` and
 ///   `expectedPart2TestResults` properties.
 /// - The "real" input (e.g. `Day01_Input.txt`).
 /// - Discussion of my solution (e.g. `Day01_Discussion.md`).
@@ -90,18 +91,18 @@ class DayNN: NSObject {
 
 	// MARK: - Private stuff
 
-	/// Reads input from a resource in the application bundle.
 	private func realInputLines() -> [String] {
 		let resourceName = String(format: "Day%02d_Input.txt", dayNumber)
 		return linesFromTextResource(resourceName)
 	}
 
-	/// Reads test input from a resource in the application bundle.
-	private func testInputLines(testNumber: Int) -> [String] {
-		let resourceName = String(format: "Day%02d_Test%02dInput.txt", dayNumber, testNumber)
+	private func testInputLines(fileNumber: Int) -> [String] {
+		let resourceName = String(format: "Day%02d_TestInput%02d.txt", dayNumber, fileNumber)
 		return linesFromTextResource(resourceName)
 	}
 
+	/// Reads text from a resource in the application bundle.
+	/// - Parameter resourceName : The full file name, including extension.
 	private func stringFromTextResource(_ resourceName: String) -> String {
 		let resourceURL = Bundle.main.url(forResource: resourceName, withExtension: "")!
 		let resourceData = try! Data(contentsOf: resourceURL)
@@ -121,7 +122,7 @@ class DayNN: NSObject {
 	private func doTests(_ tests: [Int: String], _ solve: ([String])->String) -> Bool {
 
 		for testNumber in tests.keys.sorted() {
-			let testResult = solve(testInputLines(testNumber: testNumber))
+			let testResult = solve(testInputLines(fileNumber: testNumber))
 			print("expected '\(tests[testNumber]!)', got '\(testResult)'")
 		}
 
