@@ -1,6 +1,6 @@
 import Foundation
 
-/// Node within a directed graph.
+/// Node within a bidirectional directed graph.
 class Node {
 	enum FlowControl {
 		case shouldStop, shouldContinue
@@ -27,9 +27,13 @@ class Node {
 		children.removeAll(where: { $0 === child })
 	}
 
-	/// Traverses the sub-graph rooted at self, performing the given action on each
-	/// visited node, until either the action returns `.shouldStop` or all descendant
-	/// nodes have been visited.
+	/// Does a depth-first traversal of the graph rooted at self, performing the given
+	/// action on each visited node, until either the action returns `.shouldStop` or all
+	/// descendant nodes have been visited.
+	///
+	/// Does not check for cycles, so this could potentially lead to an infinite
+	/// recursion.  It's up to you to deal with this possibility, either because you know
+	/// there are no cycles or because you add your own cycle handling.
 	func depthFirst(action: (Node)->FlowControl) -> FlowControl {
 		for child in children {
 			if child.depthFirst(action: action) == .shouldStop {

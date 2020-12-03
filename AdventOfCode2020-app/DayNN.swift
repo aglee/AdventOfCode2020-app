@@ -85,41 +85,6 @@ class DayNN: NSObject {
 		return doTests(expectedPart2TestResults, solvePart2)
 	}
 
-	// MARK: - NSObject overrides
-
-	override var description: String {
-		return "Day \(dayNumber) - \(title)"
-	}
-
-	// MARK: - Private stuff
-
-	private func realInputLines() -> [String] {
-		let resourceName = String(format: "Day%02d_Input.txt", dayNumber)
-		return linesFromTextResource(resourceName)
-	}
-
-	private func testInputFileName(fileNumber: Int) -> String {
-		return String(format: "Day%02d_TestInput%02d.txt", dayNumber, fileNumber)
-	}
-
-	/// Reads text from a resource in the application bundle.
-	/// - Parameter resourceName : The full file name, including extension.
-	private func stringFromTextResource(_ resourceName: String) -> String {
-		let resourceURL = Bundle.main.url(forResource: resourceName, withExtension: "")!
-		let resourceData = try! Data(contentsOf: resourceURL)
-		return String(data: resourceData, encoding: .utf8)!
-	}
-
-	private func linesFromTextResource(_ resourceName: String) -> [String] {
-		return stringFromTextResource(resourceName).split(separator: "\n").map { String($0) }
-	}
-
-	/// `puzzlePart` should be 1 or 2
-	private func puzzleText(puzzlePart: Int) -> String {
-		let resourceName = String(format: "Day%02d_Part%d.txt", dayNumber, puzzlePart)
-		return stringFromTextResource(resourceName)
-	}
-
 	/// Returns true if all tests pass.  Stops and returns false if any test fails.
 	private func doTests(_ tests: [Int: String], _ solve: ([String])->String) -> Bool {
 		if tests.count == 0 {
@@ -142,5 +107,40 @@ class DayNN: NSObject {
 			}
 		}
 		return true
+	}
+
+	// MARK: - Resource files
+
+	func realInputLines() -> [String] {
+		let resourceName = String(format: "Day%02d_Input.txt", dayNumber)
+		return linesFromTextResource(resourceName)
+	}
+
+	func testInputFileName(fileNumber: Int) -> String {
+		return String(format: "Day%02d_TestInput%02d.txt", dayNumber, fileNumber)
+	}
+
+	/// Reads text from a resource in the application bundle.
+	/// - Parameter resourceName : The full file name, including extension.
+	func stringFromTextResource(_ resourceName: String) -> String {
+		let resourceURL = Bundle.main.url(forResource: resourceName, withExtension: "")!
+		let resourceData = try! Data(contentsOf: resourceURL)
+		return String(data: resourceData, encoding: .utf8)!
+	}
+
+	func linesFromTextResource(_ resourceName: String) -> [String] {
+		return stringFromTextResource(resourceName).split(separator: "\n").map { String($0) }
+	}
+
+	/// `puzzlePart` should be 1 or 2
+	func puzzleText(puzzlePart: Int) -> String {
+		let resourceName = String(format: "Day%02d_Part%d.txt", dayNumber, puzzlePart)
+		return stringFromTextResource(resourceName)
+	}
+
+	// MARK: - NSObject overrides
+
+	override var description: String {
+		return "Day \(dayNumber) - \(title)"
 	}
 }
