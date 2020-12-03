@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		mainWC = MainWindowController(windowNibName: "MainWindowController")
 //		mainWC.window?.display()
 
-		doOneDay(Day02())
+		doOneDay(Day03())
 		NSApplication.shared.terminate(nil)
 	}
 
