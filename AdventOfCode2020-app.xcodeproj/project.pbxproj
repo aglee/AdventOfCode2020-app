@@ -50,6 +50,9 @@
 		738A2B282579D5E900E662B9 /* Day04_Part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B222579D5E900E662B9 /* Day04_Part1.txt */; };
 		738A2B292579D5E900E662B9 /* Day04_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B232579D5E900E662B9 /* Day04_Input.txt */; };
 		738A2B2A2579D5E900E662B9 /* Day04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A2B242579D5E900E662B9 /* Day04.swift */; };
+		738A2B32257A144700E662B9 /* Day04_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B31257A144700E662B9 /* Day04_TestInput02.txt */; };
+		738A2B37257A146000E662B9 /* Day04_TestInput03.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B36257A146000E662B9 /* Day04_TestInput03.txt */; };
+		738A2B3C257A1B6A00E662B9 /* Passport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A2B3B257A1B6A00E662B9 /* Passport.swift */; };
 		738C023D25763FFB007338D5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C023C25763FFB007338D5 /* Util.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +128,9 @@
 		738A2B222579D5E900E662B9 /* Day04_Part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day04_Part1.txt; sourceTree = "<group>"; };
 		738A2B232579D5E900E662B9 /* Day04_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day04_Input.txt; sourceTree = "<group>"; };
 		738A2B242579D5E900E662B9 /* Day04.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day04.swift; sourceTree = "<group>"; };
+		738A2B31257A144700E662B9 /* Day04_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day04_TestInput02.txt; sourceTree = "<group>"; };
+		738A2B36257A146000E662B9 /* Day04_TestInput03.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day04_TestInput03.txt; sourceTree = "<group>"; };
+		738A2B3B257A1B6A00E662B9 /* Passport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passport.swift; sourceTree = "<group>"; };
 		738C023C25763FFB007338D5 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -313,7 +319,10 @@
 				738A2B222579D5E900E662B9 /* Day04_Part1.txt */,
 				738A2B212579D5E900E662B9 /* Day04_Part2.txt */,
 				738A2B1F2579D5E900E662B9 /* Day04_TestInput01.txt */,
+				738A2B31257A144700E662B9 /* Day04_TestInput02.txt */,
+				738A2B36257A146000E662B9 /* Day04_TestInput03.txt */,
 				738A2B242579D5E900E662B9 /* Day04.swift */,
+				738A2B3B257A1B6A00E662B9 /* Passport.swift */,
 			);
 			path = Day04;
 			sourceTree = "<group>";
@@ -437,12 +446,14 @@
 				73436156257610F700FA8D7F /* Day01_TestInput01.txt in Resources */,
 				738A2AEA2577294100E662B9 /* Day02_Input.txt in Resources */,
 				7373BC8B2575D21600622514 /* Day01_Input.txt in Resources */,
+				738A2B32257A144700E662B9 /* Day04_TestInput02.txt in Resources */,
 				738A2B252579D5E900E662B9 /* Day04_TestInput01.txt in Resources */,
 				738A2AFF2577A77900E662B9 /* Day03_TestInput01.txt in Resources */,
 				7373BC392575CC0700622514 /* MainMenu.xib in Resources */,
 				738A2B032577A77900E662B9 /* Day03_Part2.txt in Resources */,
 				738A2AE62577294100E662B9 /* Day02_Discussion.md in Resources */,
 				7343614A25760D2A00FA8D7F /* Day01_Part2.txt in Resources */,
+				738A2B37257A146000E662B9 /* Day04_TestInput03.txt in Resources */,
 				738A2B292579D5E900E662B9 /* Day04_Input.txt in Resources */,
 				7373BC862575D1E700622514 /* Day01_Part1.txt in Resources */,
 			);
@@ -485,6 +496,7 @@
 				7368FE982576B9A300FAFAA3 /* topSort.swift in Sources */,
 				738A2B1A2579C9E000E662B9 /* CharGrid.swift in Sources */,
 				738C023D25763FFB007338D5 /* Util.swift in Sources */,
+				738A2B3C257A1B6A00E662B9 /* Passport.swift in Sources */,
 				7373BC632575CD0200622514 /* MainWindowController.swift in Sources */,
 				7373BC342575CC0500622514 /* AppDelegate.swift in Sources */,
 			);

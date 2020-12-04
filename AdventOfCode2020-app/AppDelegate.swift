@@ -17,7 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		mainWC = MainWindowController(windowNibName: "MainWindowController")
 //		mainWC.window?.display()
 
-		doOneDay(Day03())
+//		Passport().tempTest()
+		doOneDay(Day04())
 		NSApplication.shared.terminate(nil)
 	}
 
