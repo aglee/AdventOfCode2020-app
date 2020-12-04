@@ -1,5 +1,11 @@
 import Foundation
 
+/// Grid for the toboggan problem.
+///
+/// According to the puzzle description:
+/// 
+/// - "#" means tree and "." means no tree.
+/// - The overall terrain consists of this grid repeated horizontally over and over.
 class Terrain: CharGrid {
 	func countTrees(deltaX: Int, deltaY: Int) -> Int {
 		var treesEncountered = 0

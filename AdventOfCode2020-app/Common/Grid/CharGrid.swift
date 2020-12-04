@@ -3,9 +3,6 @@ import Foundation
 /// A non-empty rectangular collection of 1-character strings -- basically syntactic sugar
 /// around a 2-dimensional array.
 class CharGrid {
-	/// Contains a 2-dimensional array of 1-character strings, with "#" meaning tree and
-	/// "." meaning no tree.  According to the puzzle description, the terrain consists of
-	/// this grid repeated horizontally over and over.
 	private var rows: [[String]]
 	var width: Int { return rows[0].count }
 	var height: Int { return rows.count }
