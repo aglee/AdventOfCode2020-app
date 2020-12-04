@@ -120,6 +120,10 @@ class DayNN: NSObject {
 		return String(format: "Day%02d_TestInput%02d.txt", dayNumber, fileNumber)
 	}
 
+	func testInputLines(fileNumber: Int) -> [String] {
+		return linesFromTextResource(testInputFileName(fileNumber: fileNumber))
+	}
+
 	/// Reads text from a resource in the application bundle.
 	/// - Parameter resourceName : The full file name, including extension.
 	func stringFromTextResource(_ resourceName: String) -> String {
@@ -128,8 +132,16 @@ class DayNN: NSObject {
 		return String(data: resourceData, encoding: .utf8)!
 	}
 
+	/// Removes trailing empty lines but keeps internal empty lines.
 	func linesFromTextResource(_ resourceName: String) -> [String] {
-		return stringFromTextResource(resourceName).split(separator: "\n").map { String($0) }
+		let totalString = stringFromTextResource(resourceName)
+		var rawLines = totalString.split(separator: "\n",
+										 maxSplits: Int.max,
+										 omittingEmptySubsequences: false)
+		while rawLines.last?.count == 0 {
+			rawLines.removeLast()
+		}
+		return rawLines.map { String($0) }
 	}
 
 	/// `puzzlePart` should be 1 or 2
