@@ -1,41 +1,19 @@
 import Foundation
 
-struct Terrain {
-	/// Contains a 2-dimensional array of 1-character strings, with "#" meaning tree and
-	/// "." meaning no tree.  According to the puzzle description, the terrain consists of
-	/// this grid repeated horizontally over and over.
-	var gridRows: [[String]]
-	var gridWidth: Int { return gridRows[0].count }
-	var gridHeight: Int { return gridRows.count }
-
-	init(inputLines: [String]) {
-		self.gridRows = inputLines.map { $0.map { String($0) } }
-	}
-
-	func isTree(x: Int, y: Int) -> Bool {
-		return gridRows[y % gridHeight][x % gridWidth] == "#"
-	}
-
+class Terrain: CharGrid {
 	func countTrees(deltaX: Int, deltaY: Int) -> Int {
 		var treesEncountered = 0
 
 		// We're told that our starting point of (0, 0) has no tree, so we start counting
 		// at the next point, which is (deltaX, deltaY).
 		var (x, y) = (deltaX, deltaY)
-		while y < gridHeight {
-			if isTree(x: x, y: y) {
+		while y < height {
+			if self[x % width, y % height] == "#" {
 				treesEncountered += 1
 			}
-			x += deltaX
-			y += deltaY
+			(x, y) = (x + deltaX, y + deltaY)
 		}
 		return treesEncountered
-	}
-
-	func printGrid() {
-		for row in gridRows {
-			print(row.joined())
-		}
 	}
 }
 

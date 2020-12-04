@@ -1,8 +1,11 @@
 import Foundation
 
-/// An infinite two-dimensional grid.
+/// Collection of elements arranged at integer coordinates on a plane.  The `y` coordinate
+/// increases *downward* -- you can think of it as a row number.
 ///
-/// The y axis grows *downward*.
+/// This is for the cases where we don't know the bounds of the grid beforehand, and/or we
+/// may need to use points with negative coordinates, and/or we may need to deal with
+/// coordinates so large an array would use too much memory.
 struct Grid {
 	private var tiles = [GridPoint: GridElement]()
 	private(set) var minX = 0
