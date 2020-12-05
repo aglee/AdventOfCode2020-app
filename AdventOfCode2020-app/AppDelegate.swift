@@ -17,8 +17,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		mainWC = MainWindowController(windowNibName: "MainWindowController")
 //		mainWC.window?.display()
 
+//TODO: do this Day04 testing properly
 //		Passport().tempTest()
-		doOneDay(Day04())
+
+//TODO: do this Day05 testing properly
+//		print(BoardingPass("FBFBBFFRLR").displayString)  // row 44, column 5, seat ID 357
+//		print(BoardingPass("BFFFBBFRRR").displayString)  // row 70, column 7, seat ID 567
+//		print(BoardingPass("FFFBBBFRRR").displayString)  // row 14, column 7, seat ID 119
+//		print(BoardingPass("BBFFBBFRLL").displayString)  // row 102, column 4, seat ID 820
+
+		doOneDay(Day05())
 		NSApplication.shared.terminate(nil)
 	}
 
