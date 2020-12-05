@@ -27,6 +27,9 @@ import Foundation
 class DayNN: NSObject {
 	var title: String
 
+	var part1Tests = [Test]()
+	var part2Tests = [Test]()
+
 	/// We derive the day number from the last 2 characters of the class name.
 	var dayNumber: Int { return Int(self.className.suffix(2))! }
 
@@ -35,15 +38,6 @@ class DayNN: NSObject {
 
 	/// Description of Part 2 of this day's puzzle.
 	var part2PuzzleText: String { return puzzleText(puzzlePart: 2) }
-
-	/// Subclasses must override this.  Maps test input file numbers to expected test
-	/// results.  For each test input file number, `solvePart1(inputLines:)` is run with
-	/// the contents of that file, and the result is compared with the expected result.
-	var expectedPart1TestResults: [Int: String] { return [:] }
-
-	/// Subclasses must override this.  Just like `expectedPart1TestResults`, but using
-	/// `solvePart2(inputLines:)`.
-	var expectedPart2TestResults: [Int: String] { return [:] }
 
 	var discussionMarkdownText: String {
 		let resourceName = String(format: "Day%02d_Discussion.md", dayNumber)
@@ -73,40 +67,6 @@ class DayNN: NSObject {
 	/// Subclasses must override this.
 	final func solvePart2() -> String {
 		return solvePart2(inputLines: realInputLines())
-	}
-
-	// MARK: - Testing
-
-	final func testPart1() -> Bool {
-		return doTests(expectedPart1TestResults, solvePart1)
-	}
-
-	final func testPart2() -> Bool {
-		return doTests(expectedPart2TestResults, solvePart2)
-	}
-
-	/// Returns true if all tests pass.  Stops and returns false if any test fails.
-	private func doTests(_ tests: [Int: String], _ solve: ([String])->String) -> Bool {
-		if tests.count == 0 {
-			print("No tests were specified.")
-			return true
-		}
-
-		// Run our puzzle solution on each specified testing input file, and compare the
-		// result to the expected result.
-		for testFileNumber in tests.keys.sorted() {
-			let inputFileName = testInputFileName(fileNumber: testFileNumber)
-			let expectedResult = tests[testFileNumber]!
-			let testResult = solve(linesFromTextResource(inputFileName))
-			if testResult == expectedResult {
-				print("Test using \(inputFileName) -- PASSED.")
-			} else {
-				print("Test using \(inputFileName) -- FAILED.")
-				print("  Expected '\(expectedResult)', got '\(testResult)'.")
-				return false
-			}
-		}
-		return true
 	}
 
 	// MARK: - Resource files

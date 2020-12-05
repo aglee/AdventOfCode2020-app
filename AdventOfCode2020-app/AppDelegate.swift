@@ -17,32 +17,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		mainWC = MainWindowController(windowNibName: "MainWindowController")
 //		mainWC.window?.display()
 
-//TODO: do this Day04 testing properly
-//		Passport().tempTest()
-
-//TODO: do this Day05 testing properly
-//		print(BoardingPass("FBFBBFFRLR").displayString)  // row 44, column 5, seat ID 357
-//		print(BoardingPass("BFFFBBFRRR").displayString)  // row 70, column 7, seat ID 567
-//		print(BoardingPass("FFFBBBFRRR").displayString)  // row 14, column 7, seat ID 119
-//		print(BoardingPass("BBFFBBFRLL").displayString)  // row 102, column 4, seat ID 820
-
 		doOneDay(Day05())
 		NSApplication.shared.terminate(nil)
 	}
 
 	// MARK: - Private stuff
 
+	/// Returns true if all tests pass.
+	private func runTests(_ tests: [Test]) -> Bool {
+		if tests.count == 0 {
+			print("No tests were specified.")
+			return true
+		}
+
+		for test in tests {
+			if test.doTest() == test.expectedOutput {
+				print("Test '\(test.name)' -- PASSED")
+			} else {
+				print("Test '\(test.name)' -- FAILED: expected '\(test.expectedOutput)', got '\(test.doTest())'")
+				return false
+			}
+		}
+
+		// If we got this far, all tests passed.
+		return true
+	}
+
 	private func doOneDay(_ day: DayNN) {
 		print("===== Day \(day.dayNumber): \(day.title) =====")
 		print()
 		print("--- Part 1 ---")
-		if day.testPart1() {
+
+		if runTests(day.part1Tests) {
 			print("Answer for Part 1: \(day.solvePart1())")
 		}
 		print()
 
 		print("--- Part 2 ---")
-		if day.testPart2() {
+		if runTests(day.part2Tests) {
 			print("Answer for Part 2: \(day.solvePart2())")
 		}
 		print()

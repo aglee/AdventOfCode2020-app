@@ -58,6 +58,7 @@
 		738A2B4A257B4BEC00E662B9 /* Day05_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B44257B4BEC00E662B9 /* Day05_Discussion.md */; };
 		738A2B4B257B4BEC00E662B9 /* Day05_Part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B45257B4BEC00E662B9 /* Day05_Part2.txt */; };
 		738A2B4C257B4BEC00E662B9 /* Day05_Part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B46257B4BEC00E662B9 /* Day05_Part1.txt */; };
+		738A2B57257B656900E662B9 /* DayNN+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A2B56257B656900E662B9 /* DayNN+Tests.swift */; };
 		738C023D25763FFB007338D5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C023C25763FFB007338D5 /* Util.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +142,7 @@
 		738A2B44257B4BEC00E662B9 /* Day05_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day05_Discussion.md; sourceTree = "<group>"; };
 		738A2B45257B4BEC00E662B9 /* Day05_Part2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day05_Part2.txt; sourceTree = "<group>"; };
 		738A2B46257B4BEC00E662B9 /* Day05_Part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day05_Part1.txt; sourceTree = "<group>"; };
+		738A2B56257B656900E662B9 /* DayNN+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayNN+Tests.swift"; sourceTree = "<group>"; };
 		738C023C25763FFB007338D5 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +254,7 @@
 				7343612B2575E94E00FA8D7F /* Common */,
 				7343614E2576105F00FA8D7F /* Main Window */,
 				7373BC7F2575D0E100622514 /* DayNN.swift */,
+				738A2B56257B656900E662B9 /* DayNN+Tests.swift */,
 				7373BC842575D19E00622514 /* Day01 */,
 				738A2ADF2577294100E662B9 /* Day02 */,
 				738A2AF82577A77900E662B9 /* Day03 */,
@@ -524,6 +527,7 @@
 				7368FE982576B9A300FAFAA3 /* topSort.swift in Sources */,
 				738A2B1A2579C9E000E662B9 /* CharGrid.swift in Sources */,
 				738C023D25763FFB007338D5 /* Util.swift in Sources */,
+				738A2B57257B656900E662B9 /* DayNN+Tests.swift in Sources */,
 				738A2B3C257A1B6A00E662B9 /* Passport.swift in Sources */,
 				7373BC632575CD0200622514 /* MainWindowController.swift in Sources */,
 				7373BC342575CC0500622514 /* AppDelegate.swift in Sources */,

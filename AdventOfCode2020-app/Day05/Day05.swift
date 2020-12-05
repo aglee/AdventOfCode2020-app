@@ -29,6 +29,20 @@ struct BoardingPass {
 class Day05: DayNN {
 	init() {
 		super.init("Binary Boarding")
+		self.part1Tests = [
+			boardingPassTest("FBFBBFFRLR", row: 44, column: 5),
+			boardingPassTest("BFFFBBFRRR", row: 70, column: 7),
+			boardingPassTest("FFFBBBFRRR", row: 14, column: 7),
+			boardingPassTest("BBFFBBFRLL", row: 102, column: 4),
+		]
+		self.part2Tests = []
+	}
+
+	private func boardingPassTest(_ s: String, row: Int, column: Int) -> Test {
+		let seatID = 8*row + column
+		return Test(name: "\(s) (\(seatID))",
+					testBlock: { BoardingPass(s).displayString },
+					expectedOutput: "row \(row), column \(column), seat ID \(seatID)")
 	}
 
 	// MARK: - Solving

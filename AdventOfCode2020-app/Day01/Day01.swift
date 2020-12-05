@@ -1,15 +1,14 @@
 import Foundation
 
 class Day01: DayNN {
-	override var expectedPart1TestResults: [Int : String] {
-		return [1: "514579"]
-	}
-	override var expectedPart2TestResults: [Int : String] {
-		return [1: "241861950"]
-	}
-
 	init() {
 		super.init("Report Repair")
+		self.part1Tests = [
+			testPart1(fileNumber: 1, expectedOutput: "514579")
+		]
+		self.part2Tests = [
+			testPart2(fileNumber: 1, expectedOutput: "241861950")
+		]
 	}
 
 	// MARK: - Solving

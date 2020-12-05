@@ -24,15 +24,14 @@ class Terrain: CharGrid {
 }
 
 class Day03: DayNN {
-	override var expectedPart1TestResults: [Int : String] {
-		return [1: "7"]
-	}
-	override var expectedPart2TestResults: [Int : String] {
-		return [1: "336"]
-	}
-
 	init() {
 		super.init("Toboggan Trajectory")
+		self.part1Tests = [
+			testPart1(fileNumber: 1, expectedOutput: "7")
+		]
+		self.part2Tests = [
+			testPart2(fileNumber: 1, expectedOutput: "336")
+		]
 	}
 
 	// MARK: - Solving

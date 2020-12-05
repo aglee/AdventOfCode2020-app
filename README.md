@@ -9,15 +9,10 @@ Technically I don't *have* to build a UI.  I could do all the work in `applicati
 
 ## Things to think about
 
-- How I set up testing.  Seems I could improve.  Things to consider:
-	- Part 1 and Part 2 have separate sets of tests.
-	- Both sets of tests may or may not use the same inputs.
-	- Right now I have the test inputs in text files, part of me thinks I should make more of the testing data-driven in this way, e.g. put the expected outputs in text files as well rather than in code.  And have some sort of config file that maps the two.  OTOH sometimes that might feel like overkill, like if the input and output are both short strings.  Think about the file format of the config file.  Maybe the config should be in code after all.
 - Add more data structures and algorithms, e.g. `A*`, e.g. `CountedSet`.  I looked at the Swift algorithms stuff, it doesn't seem to be what I mean.  I could go through past years of my own code, and also of course look for stuff on GitHub and/or SPM.  Could be a good way to learn to use git modules and/or SPM.
 - What's the deal with Xcode always forcing my `.txt` files to end with a newline?  Doesn't matter for my purposes, just wondering.
 - I've been copy-pasting the puzzle descriptions as plain text.  Would it be worth grabbing the HTML and CSS instead?  Or maybe pasting into .rtf files rather than plain text?  I'd only grab the problem descriptions, not the surrounding stuff like ads and site navigation.
 - Should I put the correct final answers I got somewhere, so when I run the code later I can have the satisfaction of seeing it still works on the real data and not just the test data?  I haven't been wanting to, out of perhaps a misguided concern about spoilers/cheating.  Perhaps it's even less of a concern this year, since I'm not posting my solutions publicly right away.
-- Should I add hooks for tests other than running the examples given in the problem descriptions -- e.g. tests of parsing logic and so forth?
 
 
 

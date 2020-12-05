@@ -22,15 +22,14 @@ struct PasswordRule {
 }
 
 class Day02: DayNN {
-	override var expectedPart1TestResults: [Int : String] {
-		return [1: "2"]
-	}
-	override var expectedPart2TestResults: [Int : String] {
-		return [1: "1"]
-	}
-
 	init() {
 		super.init("Password Philosophy")
+		self.part1Tests = [
+			testPart1(fileNumber: 1, expectedOutput: "2")
+		]
+		self.part2Tests = [
+			testPart2(fileNumber: 1, expectedOutput: "1")
+		]
 	}
 
 	// MARK: - Solving
