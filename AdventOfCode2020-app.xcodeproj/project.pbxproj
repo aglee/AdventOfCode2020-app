@@ -53,6 +53,12 @@
 		738A2B32257A144700E662B9 /* Day04_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B31257A144700E662B9 /* Day04_TestInput02.txt */; };
 		738A2B37257A146000E662B9 /* Day04_TestInput03.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B36257A146000E662B9 /* Day04_TestInput03.txt */; };
 		738A2B3C257A1B6A00E662B9 /* Passport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A2B3B257A1B6A00E662B9 /* Passport.swift */; };
+		738A2B47257B4BEC00E662B9 /* Day05_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B41257B4BEC00E662B9 /* Day05_TestInput01.txt */; };
+		738A2B48257B4BEC00E662B9 /* Day05_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B42257B4BEC00E662B9 /* Day05_Input.txt */; };
+		738A2B49257B4BEC00E662B9 /* Day05.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A2B43257B4BEC00E662B9 /* Day05.swift */; };
+		738A2B4A257B4BEC00E662B9 /* Day05_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B44257B4BEC00E662B9 /* Day05_Discussion.md */; };
+		738A2B4B257B4BEC00E662B9 /* Day05_Part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B45257B4BEC00E662B9 /* Day05_Part2.txt */; };
+		738A2B4C257B4BEC00E662B9 /* Day05_Part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B46257B4BEC00E662B9 /* Day05_Part1.txt */; };
 		738C023D25763FFB007338D5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C023C25763FFB007338D5 /* Util.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +137,12 @@
 		738A2B31257A144700E662B9 /* Day04_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day04_TestInput02.txt; sourceTree = "<group>"; };
 		738A2B36257A146000E662B9 /* Day04_TestInput03.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day04_TestInput03.txt; sourceTree = "<group>"; };
 		738A2B3B257A1B6A00E662B9 /* Passport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passport.swift; sourceTree = "<group>"; };
+		738A2B41257B4BEC00E662B9 /* Day05_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day05_TestInput01.txt; sourceTree = "<group>"; };
+		738A2B42257B4BEC00E662B9 /* Day05_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day05_Input.txt; sourceTree = "<group>"; };
+		738A2B43257B4BEC00E662B9 /* Day05.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day05.swift; sourceTree = "<group>"; };
+		738A2B44257B4BEC00E662B9 /* Day05_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day05_Discussion.md; sourceTree = "<group>"; };
+		738A2B45257B4BEC00E662B9 /* Day05_Part2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day05_Part2.txt; sourceTree = "<group>"; };
+		738A2B46257B4BEC00E662B9 /* Day05_Part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day05_Part1.txt; sourceTree = "<group>"; };
 		738C023C25763FFB007338D5 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,6 +258,7 @@
 				738A2ADF2577294100E662B9 /* Day02 */,
 				738A2AF82577A77900E662B9 /* Day03 */,
 				738A2B1E2579D5E900E662B9 /* Day04 */,
+				738A2B40257B4BEC00E662B9 /* Day05 */,
 				7373BC352575CC0700622514 /* Assets.xcassets */,
 				7373BC372575CC0700622514 /* MainMenu.xib */,
 				7373BC3A2575CC0700622514 /* Info.plist */,
@@ -325,6 +338,19 @@
 				738A2B3B257A1B6A00E662B9 /* Passport.swift */,
 			);
 			path = Day04;
+			sourceTree = "<group>";
+		};
+		738A2B40257B4BEC00E662B9 /* Day05 */ = {
+			isa = PBXGroup;
+			children = (
+				738A2B44257B4BEC00E662B9 /* Day05_Discussion.md */,
+				738A2B42257B4BEC00E662B9 /* Day05_Input.txt */,
+				738A2B46257B4BEC00E662B9 /* Day05_Part1.txt */,
+				738A2B45257B4BEC00E662B9 /* Day05_Part2.txt */,
+				738A2B41257B4BEC00E662B9 /* Day05_TestInput01.txt */,
+				738A2B43257B4BEC00E662B9 /* Day05.swift */,
+			);
+			path = Day05;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +456,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738A2B4C257B4BEC00E662B9 /* Day05_Part1.txt in Resources */,
 				738A2AE92577294100E662B9 /* Day02_TestInput01.txt in Resources */,
 				738A2AE82577294100E662B9 /* Day02_Part1.txt in Resources */,
 				738A2B282579D5E900E662B9 /* Day04_Part1.txt in Resources */,
@@ -438,10 +465,13 @@
 				7373BC362575CC0700622514 /* Assets.xcassets in Resources */,
 				738A2B272579D5E900E662B9 /* Day04_Part2.txt in Resources */,
 				73436172257625D700FA8D7F /* Day01_Discussion.md in Resources */,
+				738A2B4B257B4BEC00E662B9 /* Day05_Part2.txt in Resources */,
 				7343617A2576291B00FA8D7F /* README.md in Resources */,
+				738A2B47257B4BEC00E662B9 /* Day05_TestInput01.txt in Resources */,
 				7373BC642575CD0200622514 /* MainWindowController.xib in Resources */,
 				738A2B002577A77900E662B9 /* Day03_Discussion.md in Resources */,
 				738A2AE72577294100E662B9 /* Day02_Part2.txt in Resources */,
+				738A2B4A257B4BEC00E662B9 /* Day05_Discussion.md in Resources */,
 				738A2B042577A77900E662B9 /* Day03_Part1.txt in Resources */,
 				73436156257610F700FA8D7F /* Day01_TestInput01.txt in Resources */,
 				738A2AEA2577294100E662B9 /* Day02_Input.txt in Resources */,
@@ -456,6 +486,7 @@
 				738A2B37257A146000E662B9 /* Day04_TestInput03.txt in Resources */,
 				738A2B292579D5E900E662B9 /* Day04_Input.txt in Resources */,
 				7373BC862575D1E700622514 /* Day01_Part1.txt in Resources */,
+				738A2B48257B4BEC00E662B9 /* Day05_Input.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +516,7 @@
 				738A2AEB2577294100E662B9 /* Day02.swift in Sources */,
 				7343618525762D9700FA8D7F /* GridPoint.swift in Sources */,
 				734361402575E9F100FA8D7F /* Memory.swift in Sources */,
+				738A2B49257B4BEC00E662B9 /* Day05.swift in Sources */,
 				7368FE9E2576BAA500FAFAA3 /* Node.swift in Sources */,
 				7373BC802575D0E100622514 /* DayNN.swift in Sources */,
 				738A2B022577A77900E662B9 /* Day03.swift in Sources */,
