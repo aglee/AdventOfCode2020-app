@@ -9,7 +9,6 @@ import Cocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-
 	var mainWC: MainWindowController!
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -17,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		mainWC = MainWindowController(windowNibName: "MainWindowController")
 //		mainWC.window?.display()
 
-		doOneDay(Day05())
+		doOneDay(Day06())
 		NSApplication.shared.terminate(nil)
 	}
 
@@ -46,17 +45,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	private func doOneDay(_ day: DayNN) {
 		print("===== Day \(day.dayNumber): \(day.title) =====")
 		print()
-		print("--- Part 1 ---")
 
-		if runTests(day.part1Tests) {
-			print("Answer for Part 1: \(day.solvePart1())")
-		}
+		print("--- Part 1 ---")
+		guard runTests(day.part1Tests) else { return }
+		print("Answer for Part 1: \(day.solvePart1())")
 		print()
 
 		print("--- Part 2 ---")
-		if runTests(day.part2Tests) {
-			print("Answer for Part 2: \(day.solvePart2())")
-		}
+		guard runTests(day.part2Tests) else { return }
+		print("Answer for Part 2: \(day.solvePart2())")
 		print()
 	}
 }

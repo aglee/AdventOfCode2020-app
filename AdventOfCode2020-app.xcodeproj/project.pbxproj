@@ -65,6 +65,7 @@
 		738A2B65257C4C7900E662B9 /* Day06_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B5F257C4C7900E662B9 /* Day06_Discussion.md */; };
 		738A2B66257C4C7900E662B9 /* Day06.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A2B60257C4C7900E662B9 /* Day06.swift */; };
 		738A2B67257C4C7900E662B9 /* Day06_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B61257C4C7900E662B9 /* Day06_TestInput01.txt */; };
+		738A2B6F257CAD8E00E662B9 /* Day06_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738A2B6E257CAD8E00E662B9 /* Day06_TestInput02.txt */; };
 		738C023D25763FFB007338D5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C023C25763FFB007338D5 /* Util.swift */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +156,7 @@
 		738A2B5F257C4C7900E662B9 /* Day06_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day06_Discussion.md; sourceTree = "<group>"; };
 		738A2B60257C4C7900E662B9 /* Day06.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day06.swift; sourceTree = "<group>"; };
 		738A2B61257C4C7900E662B9 /* Day06_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day06_TestInput01.txt; sourceTree = "<group>"; };
+		738A2B6E257CAD8E00E662B9 /* Day06_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day06_TestInput02.txt; sourceTree = "<group>"; };
 		738C023C25763FFB007338D5 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -374,6 +376,7 @@
 				738A2B5D257C4C7900E662B9 /* Day06_Part1.txt */,
 				738A2B5C257C4C7900E662B9 /* Day06_Part2.txt */,
 				738A2B61257C4C7900E662B9 /* Day06_TestInput01.txt */,
+				738A2B6E257CAD8E00E662B9 /* Day06_TestInput02.txt */,
 				738A2B60257C4C7900E662B9 /* Day06.swift */,
 			);
 			path = Day06;
@@ -490,6 +493,7 @@
 				738A2B262579D5E900E662B9 /* Day04_Discussion.md in Resources */,
 				738A2B012577A77900E662B9 /* Day03_Input.txt in Resources */,
 				7373BC362575CC0700622514 /* Assets.xcassets in Resources */,
+				738A2B6F257CAD8E00E662B9 /* Day06_TestInput02.txt in Resources */,
 				738A2B63257C4C7900E662B9 /* Day06_Part1.txt in Resources */,
 				738A2B272579D5E900E662B9 /* Day04_Part2.txt in Resources */,
 				738A2B67257C4C7900E662B9 /* Day06_TestInput01.txt in Resources */,

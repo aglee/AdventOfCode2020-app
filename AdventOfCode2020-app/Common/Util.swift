@@ -28,3 +28,27 @@ extension String {
 	}
 }
 
+/// Splits the given array into groups separated by empty lines.  Consecutive empty lines
+/// are treated as a single empty line.
+func groupedLines(_ inputLines: [String]) -> [[String]] {
+	var groups = [[String]]()
+	var currentGroup: [String]?
+	for line in inputLines {
+		if line.count == 0 {
+			if let g = currentGroup {
+				groups.append(g)
+			}
+			currentGroup = nil
+		} else {
+			if currentGroup == nil {
+				currentGroup = [String]()
+			}
+			currentGroup?.append(line)
+		}
+	}
+	if let p = currentGroup {
+		groups.append(p)
+	}
+	return groups
+}
+
