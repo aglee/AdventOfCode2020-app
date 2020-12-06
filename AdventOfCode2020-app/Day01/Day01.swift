@@ -4,10 +4,10 @@ class Day01: DayNN {
 	init() {
 		super.init("Report Repair")
 		self.part1Tests = [
-			testPart1(fileNumber: 1, expectedOutput: "514579")
+			testPart1(fileNumber: 1, expectedResult: "514579")
 		]
 		self.part2Tests = [
-			testPart2(fileNumber: 1, expectedOutput: "241861950")
+			testPart2(fileNumber: 1, expectedResult: "241861950")
 		]
 	}
 

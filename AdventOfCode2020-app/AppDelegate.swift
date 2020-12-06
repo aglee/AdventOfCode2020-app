@@ -16,6 +16,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		mainWC = MainWindowController(windowNibName: "MainWindowController")
 //		mainWC.window?.display()
 
+//		for d in [Day01(), Day02(), Day03(), Day04(), Day05(), Day06()] {
+//			doOneDay(d)
+//		}
 		doOneDay(Day06())
 		NSApplication.shared.terminate(nil)
 	}
@@ -30,10 +33,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 
 		for test in tests {
-			if test.doTest() == test.expectedOutput {
+			if test.doTest() == test.expectedResult {
 				print("Test '\(test.name)' -- PASSED")
 			} else {
-				print("Test '\(test.name)' -- FAILED: expected '\(test.expectedOutput)', got '\(test.doTest())'")
+				print("Test '\(test.name)' -- FAILED: expected '\(test.expectedResult)', got '\(test.doTest())'")
 				return false
 			}
 		}

@@ -27,10 +27,10 @@ class Day03: DayNN {
 	init() {
 		super.init("Toboggan Trajectory")
 		self.part1Tests = [
-			testPart1(fileNumber: 1, expectedOutput: "7")
+			testPart1(fileNumber: 1, expectedResult: "7")
 		]
 		self.part2Tests = [
-			testPart2(fileNumber: 1, expectedOutput: "336")
+			testPart2(fileNumber: 1, expectedResult: "336")
 		]
 	}
 

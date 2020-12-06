@@ -38,11 +38,13 @@ class Day05: DayNN {
 		self.part2Tests = []
 	}
 
+	/// A boarding pass with the given seat specifier should return the given values for
+	/// row and column.
 	private func boardingPassTest(_ s: String, row: Int, column: Int) -> Test {
 		let seatID = 8*row + column
 		return Test(name: "\(s) (\(seatID))",
 					testBlock: { BoardingPass(s).displayString },
-					expectedOutput: "row \(row), column \(column), seat ID \(seatID)")
+					expectedResult: "row \(row), column \(column), seat ID \(seatID)")
 	}
 
 	// MARK: - Solving

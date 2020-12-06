@@ -3,12 +3,12 @@ import Foundation
 class Test {
 	let name: String
 	let testBlock: () -> String
-	let expectedOutput: String
+	let expectedResult: String
 
-	init(name: String, testBlock: @escaping () -> String, expectedOutput: String) {
+	init(name: String, testBlock: @escaping () -> String, expectedResult: String) {
 		self.name = name
 		self.testBlock = testBlock
-		self.expectedOutput = expectedOutput
+		self.expectedResult = expectedResult
 	}
 
 	func doTest() -> String {
@@ -18,35 +18,42 @@ class Test {
 
 /// Convenience methods for creating `Test` instances.
 extension DayNN {
-	/// Convenience method for creating a `Test` instance.
-	func testPart1(fileNumber: Int, expectedOutput: String) -> Test {
+	// MARK: - Testing lines read from DayXX_TestInputYY.txt files
+
+	/// Runs `function` on lines read from the specified test input file.
+	func test(fileNumber: Int, function: @escaping ([String]) -> String, expectedResult: String) -> Test {
 		let resourceName = testInputFileName(fileNumber: fileNumber)
 		return Test(name: resourceName,
-					testBlock: {
-						let inputLines = self.testInputLines(fileNumber: fileNumber)
-						return self.solvePart1(inputLines: inputLines)
-					},
-					expectedOutput: expectedOutput)
+					testBlock: { function(self.linesFromTextResource(resourceName))	},
+					expectedResult: expectedResult)
 	}
 
-	/// Convenience method for creating a `Test` instance.
-	func testPart2(fileNumber: Int, expectedOutput: String) -> Test {
-		let resourceName = testInputFileName(fileNumber: fileNumber)
-		return Test(name: resourceName,
-					testBlock: {
-						let inputLines = self.testInputLines(fileNumber: fileNumber)
-						return self.solvePart2(inputLines: inputLines)
-					},
-					expectedOutput: expectedOutput)
+	/// Runs `solvePart1` on lines read from the specified test input file.
+	func testPart1(fileNumber: Int, expectedResult: String) -> Test {
+		return test(fileNumber: fileNumber, function: solvePart1, expectedResult: expectedResult)
 	}
 
-	/// Convenience method for creating a `Test` instance.
-	func testValidString(_ validationFunction: @escaping (String) -> Bool,
-						 _ s: String,
-						 _ isValid: Bool) -> Test {
-		return Test(name: s,
-					testBlock: { String(validationFunction(s)) },
-					expectedOutput: String(isValid))
+	/// Runs `solvePart2` on lines read from the specified test input file.
+	func testPart2(fileNumber: Int, expectedResult: String) -> Test {
+		return test(fileNumber: fileNumber, function: solvePart2, expectedResult: expectedResult)
+	}
+
+	// MARK: - Testing a single string
+
+	/// Runs `function` on the given input string.  Since `function` returns a String,
+	/// this could be thought of as a string conversion test.
+	func test(input: String, function: @escaping (String) -> String, expectedResult: String) -> Test {
+		return Test(name: input,
+					testBlock: { function(input) },
+					expectedResult: expectedResult)
+	}
+
+	/// Runs `function` on the given input string.  Since `function` returns a Bool,
+	/// this could be thought of as a field validation test.
+	func test(input: String, function: @escaping (String) -> Bool, expectedResult: Bool) -> Test {
+		return Test(name: input,
+					testBlock: { String(function(input)) },
+					expectedResult: String(expectedResult))
 	}
 }
 

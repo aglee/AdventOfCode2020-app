@@ -4,29 +4,29 @@ class Day04: DayNN {
 	init() {
 		super.init("Passport Processing")
 		self.part1Tests = [
-			testValidString(Passport.isValidBirthYear, "2002", true),
-			testValidString(Passport.isValidBirthYear, "2003", false),
+			test(input: "2002", function: Passport.isValidBirthYear, expectedResult: true),
+			test(input: "2003", function: Passport.isValidBirthYear, expectedResult: false),
 
-			testValidString(Passport.isValidHeight, "60in", true),
-			testValidString(Passport.isValidHeight, "190cm", true),
-			testValidString(Passport.isValidHeight, "190in", false),
-			testValidString(Passport.isValidHeight, "190", false),
+			test(input: "60in", function: Passport.isValidHeight, expectedResult: true),
+			test(input: "190cm", function: Passport.isValidHeight, expectedResult: true),
+			test(input: "190in", function: Passport.isValidHeight, expectedResult: false),
+			test(input: "190", function: Passport.isValidHeight, expectedResult: false),
 
-			testValidString(Passport.isValidHairColor, "#123abc", true),
-			testValidString(Passport.isValidHairColor, "#123abz", false),
-			testValidString(Passport.isValidHairColor, "123abc", false),
+			test(input: "#123abc", function: Passport.isValidHairColor, expectedResult: true),
+			test(input: "#123abz", function: Passport.isValidHairColor, expectedResult: false),
+			test(input: "123abc", function: Passport.isValidHairColor, expectedResult: false),
 
-			testValidString(Passport.isValidEyeColor, "brn", true),
-			testValidString(Passport.isValidEyeColor, "wat", false),
+			test(input: "brn", function: Passport.isValidEyeColor, expectedResult: true),
+			test(input: "wat", function: Passport.isValidEyeColor, expectedResult: false),
 
-			testValidString(Passport.isValidPassportID, "000000001", true),
-			testValidString(Passport.isValidPassportID, "0123456789", false),
+			test(input: "000000001", function: Passport.isValidPassportID, expectedResult: true),
+			test(input: "0123456789", function: Passport.isValidPassportID, expectedResult: false),
 
-			testPart1(fileNumber: 1, expectedOutput: "2"),
+			testPart1(fileNumber: 1, expectedResult: "2"),
 		]
 		self.part2Tests = [
-			testPart2(fileNumber: 2, expectedOutput: "0"),
-			testPart2(fileNumber: 3, expectedOutput: "4"),
+			testPart2(fileNumber: 2, expectedResult: "0"),
+			testPart2(fileNumber: 3, expectedResult: "4"),
 		]
 	}
 

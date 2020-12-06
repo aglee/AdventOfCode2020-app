@@ -25,10 +25,10 @@ class Day02: DayNN {
 	init() {
 		super.init("Password Philosophy")
 		self.part1Tests = [
-			testPart1(fileNumber: 1, expectedOutput: "2")
+			testPart1(fileNumber: 1, expectedResult: "2")
 		]
 		self.part2Tests = [
-			testPart2(fileNumber: 1, expectedOutput: "1")
+			testPart2(fileNumber: 1, expectedResult: "1")
 		]
 	}
 
