@@ -115,7 +115,7 @@ struct LuggageRuleset {
 
 class Day07: DayNN {
 	init() {
-		super.init("DayXX")
+		super.init("Handy Haversacks")
 		self.part1Tests = [
 			testPart1(fileNumber: 1, expectedResult: "4"),
 		]
