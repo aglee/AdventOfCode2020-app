@@ -73,6 +73,7 @@
 		738D9C0F257CEDF10057511A /* Day07_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C09257CEDF10057511A /* Day07_Discussion.md */; };
 		738D9C10257CEDF10057511A /* Day07_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C0A257CEDF10057511A /* Day07_TestInput01.txt */; };
 		738D9C11257CEDF10057511A /* Day07.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D9C0B257CEDF10057511A /* Day07.swift */; };
+		738D9C1C257E08CE0057511A /* Day07_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C1B257E08CD0057511A /* Day07_TestInput02.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,7 @@
 		738D9C09257CEDF10057511A /* Day07_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day07_Discussion.md; sourceTree = "<group>"; };
 		738D9C0A257CEDF10057511A /* Day07_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day07_TestInput01.txt; sourceTree = "<group>"; };
 		738D9C0B257CEDF10057511A /* Day07.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day07.swift; sourceTree = "<group>"; };
+		738D9C1B257E08CD0057511A /* Day07_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day07_TestInput02.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +405,7 @@
 				738D9C08257CEDF10057511A /* Day07_Part1.txt */,
 				738D9C07257CEDF10057511A /* Day07_Part2.txt */,
 				738D9C0A257CEDF10057511A /* Day07_TestInput01.txt */,
+				738D9C1B257E08CD0057511A /* Day07_TestInput02.txt */,
 				738D9C0B257CEDF10057511A /* Day07.swift */,
 			);
 			path = Day07;
@@ -530,6 +533,7 @@
 				7373BC642575CD0200622514 /* MainWindowController.xib in Resources */,
 				738A2B002577A77900E662B9 /* Day03_Discussion.md in Resources */,
 				738D9C0E257CEDF10057511A /* Day07_Part1.txt in Resources */,
+				738D9C1C257E08CE0057511A /* Day07_TestInput02.txt in Resources */,
 				738D9C0C257CEDF10057511A /* Day07_Input.txt in Resources */,
 				738A2AE72577294100E662B9 /* Day02_Part2.txt in Resources */,
 				738A2B4A257B4BEC00E662B9 /* Day05_Discussion.md in Resources */,
