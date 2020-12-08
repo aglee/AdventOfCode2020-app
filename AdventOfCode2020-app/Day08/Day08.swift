@@ -33,14 +33,19 @@ class Console {
 		}
 	}
 
+	/// Sets `accumulator` and `pc` to 0.
 	func reset() {
 		accumulator = 0
 		pc = 0
 	}
 
-	/// Start with a `reset`.  Repeatedly execute instructions until **either** we're
+	/// Start with a `reset`.  Then repeatedly execute instructions until **either** we're
 	/// about to execute an instruction we've already executed, **or** our program counter
 	/// is out of range.
+	///
+	/// - Complexity:	O(n).  Worst case, we'll have to execute every instruction in the
+	///					program before we repeat one.
+	/// eventually.
 	func run() {
 		reset()
 		var previousPCs = Set<Int>()
@@ -70,7 +75,7 @@ class Console {
 
 class Day08: DayNN {
 	init() {
-		super.init("DayXX")
+		super.init("Handheld Halting")
 		self.part1Tests = [
 			testPart1(fileNumber: 1, expectedResult: "5"),
 		]
@@ -87,6 +92,9 @@ class Day08: DayNN {
 		return(String(console.accumulator))
 	}
 
+	/// - Complexity:	O(n^2).  Worst case, we'll have to try flipping every instruction
+	///					in the program and running that modified program.  That would mean
+	///					calling `run()` n times, and `run()` is O(n).
 	override func solvePart2(inputLines: [String]) -> String {
 		func flipInstruction(_ index: Int) -> Bool {
 			switch console.program[index].op {
@@ -103,14 +111,16 @@ class Day08: DayNN {
 
 		let console = Console(inputLines)
 
-		// Try flipping each instruction in the program.
+		// On each iteration, temporarily "flip" one instruction in the program (change
+		// "jmp" to "nop" and vice versa).  See if the resulting program is "fixed" (i.e.
+		// terminates with `pc` pointing immediately after the last instruction).
 		for flipIndex in 0..<console.program.count {
 			// Flip the current instruction if possible.  If not, skip it.
 			if !flipInstruction(flipIndex) {
 				continue
 			}
 
-			// Run the program and see if the change "fixed" it.
+			// Run the program and see if the change we made "fixed" it.
 			console.run()
 			if console.pc == console.program.count {
 				return String(console.accumulator)
