@@ -1,6 +1,6 @@
 import Foundation
 
-/// Used to solve Part 1.  By "window" I mean "subsequence of the list of numbers, of
+/// Used to solve Part 1.  By "window" I mean "subarray of the list of numbers, of
 /// length `windowSize`", where `windowSize` is the length of the preamble.
 func findBadNumber(numbers: [Int], windowSize: Int) -> Int {
 	// Start with the window at the beginning of the list.  Iterate by moving the
@@ -28,8 +28,8 @@ func findBadNumber(numbers: [Int], windowSize: Int) -> Int {
 }
 
 /// Used to solve Part 2.  Note that Part 2 requires finding the **min and max** within
-/// the subsequence.
-func findSubsequenceWithSum(numbers: [Int], targetSum: Int) -> (firstIndex: Int, lastIndex: Int) {
+/// the subarray.
+func findSubarrayWithSum(numbers: [Int], targetSum: Int) -> (firstIndex: Int, lastIndex: Int) {
 	var (firstIndex, lastIndex) = (0, 0)
 	var currentSum = numbers[firstIndex]
 	while true {
@@ -76,9 +76,9 @@ class Day09: DayNN {
 	private func solvePart2(inputLines: [String], windowSize: Int) -> String {
 		let numbers = inputLines.map { Int($0)! }
 		let targetSum = findBadNumber(numbers: numbers, windowSize: windowSize)
-		let (firstIndex, lastIndex) = findSubsequenceWithSum(numbers: numbers, targetSum: targetSum)
-		let subsequence = numbers[firstIndex...lastIndex]
-		let (smallest, largest) = (subsequence.min()!, subsequence.max()!)
+		let (firstIndex, lastIndex) = findSubarrayWithSum(numbers: numbers, targetSum: targetSum)
+		let subarray = numbers[firstIndex...lastIndex]
+		let (smallest, largest) = (subarray.min()!, subarray.max()!)
 		return String(smallest + largest)
 	}
 
