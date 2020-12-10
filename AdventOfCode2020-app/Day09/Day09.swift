@@ -1,9 +1,12 @@
 import Foundation
 
-/// Used to solve Part 1.  By "window" I mean "subsequence of the list of numbers".
+/// Used to solve Part 1.  By "window" I mean "subsequence of the list of numbers, of
+/// length `windowSize`", where `windowSize` is the length of the preamble.
 func findBadNumber(numbers: [Int], windowSize: Int) -> Int {
+	// Start with the window at the beginning of the list.  Iterate by moving the
+	// window forward by one until the number immediately after the window is "bad".
 	for windowStart in 0..<(numbers.count - windowSize) {
-		// Calculate all possible pairwise sums within the window.
+		// Calculate all possible sums of two different numbers within the window.
 		var possibleSums = Set<Int>()
 		for i in windowStart..<(windowStart + windowSize - 1) {
 			for j in (i + 1)..<(windowStart + windowSize) {
