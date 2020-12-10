@@ -42,6 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 
 		// If we got this far, all tests passed.
+		print("All tests passed.")
 		return true
 	}
 
