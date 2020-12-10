@@ -93,6 +93,12 @@
 		738D9C642580B8AA0057511A /* Day10_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C5F2580B8AA0057511A /* Day10_TestInput01.txt */; };
 		738D9C6C2580BA020057511A /* Day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D9C6B2580BA020057511A /* Day10.swift */; };
 		738D9C772581E5040057511A /* Day10_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C762581E5040057511A /* Day10_TestInput02.txt */; };
+		738D9C822582225F0057511A /* Day11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D9C7C2582225F0057511A /* Day11.swift */; };
+		738D9C832582225F0057511A /* Day11_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C7D2582225F0057511A /* Day11_Input.txt */; };
+		738D9C842582225F0057511A /* Day11_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C7E2582225F0057511A /* Day11_TestInput01.txt */; };
+		738D9C852582225F0057511A /* Day11_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C7F2582225F0057511A /* Day11_Discussion.md */; };
+		738D9C862582225F0057511A /* Day11_Part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C802582225F0057511A /* Day11_Part2.txt */; };
+		738D9C872582225F0057511A /* Day11_Part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C812582225F0057511A /* Day11_Part1.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +216,12 @@
 		738D9C5F2580B8AA0057511A /* Day10_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day10_TestInput01.txt; sourceTree = "<group>"; };
 		738D9C6B2580BA020057511A /* Day10.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
 		738D9C762581E5040057511A /* Day10_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day10_TestInput02.txt; sourceTree = "<group>"; };
+		738D9C7C2582225F0057511A /* Day11.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day11.swift; sourceTree = "<group>"; };
+		738D9C7D2582225F0057511A /* Day11_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day11_Input.txt; sourceTree = "<group>"; };
+		738D9C7E2582225F0057511A /* Day11_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day11_TestInput01.txt; sourceTree = "<group>"; };
+		738D9C7F2582225F0057511A /* Day11_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day11_Discussion.md; sourceTree = "<group>"; };
+		738D9C802582225F0057511A /* Day11_Part2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day11_Part2.txt; sourceTree = "<group>"; };
+		738D9C812582225F0057511A /* Day11_Part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day11_Part1.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +343,7 @@
 				738D9C20257E1DE00057511A /* Day08 */,
 				738D9C39257FFAC30057511A /* Day09 */,
 				738D9C5A2580B8AA0057511A /* Day10 */,
+				738D9C7B2582225F0057511A /* Day11 */,
 				7373BC352575CC0700622514 /* Assets.xcassets */,
 				7373BC372575CC0700622514 /* MainMenu.xib */,
 				7373BC3A2575CC0700622514 /* Info.plist */,
@@ -492,6 +505,19 @@
 			path = Day10;
 			sourceTree = "<group>";
 		};
+		738D9C7B2582225F0057511A /* Day11 */ = {
+			isa = PBXGroup;
+			children = (
+				738D9C7F2582225F0057511A /* Day11_Discussion.md */,
+				738D9C7D2582225F0057511A /* Day11_Input.txt */,
+				738D9C812582225F0057511A /* Day11_Part1.txt */,
+				738D9C802582225F0057511A /* Day11_Part2.txt */,
+				738D9C7E2582225F0057511A /* Day11_TestInput01.txt */,
+				738D9C7C2582225F0057511A /* Day11.swift */,
+			);
+			path = Day11;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -606,6 +632,7 @@
 				738D9C29257E1DE10057511A /* Day08_TestInput01.txt in Resources */,
 				738A2B262579D5E900E662B9 /* Day04_Discussion.md in Resources */,
 				738A2B012577A77900E662B9 /* Day03_Input.txt in Resources */,
+				738D9C832582225F0057511A /* Day11_Input.txt in Resources */,
 				738D9C42257FFAC40057511A /* Day09_Part1.txt in Resources */,
 				738D9C612580B8AA0057511A /* Day10_Part2.txt in Resources */,
 				7373BC362575CC0700622514 /* Assets.xcassets in Resources */,
@@ -613,11 +640,15 @@
 				738A2B63257C4C7900E662B9 /* Day06_Part1.txt in Resources */,
 				738A2B272579D5E900E662B9 /* Day04_Part2.txt in Resources */,
 				738A2B67257C4C7900E662B9 /* Day06_TestInput01.txt in Resources */,
+				738D9C842582225F0057511A /* Day11_TestInput01.txt in Resources */,
 				73436172257625D700FA8D7F /* Day01_Discussion.md in Resources */,
 				738D9C632580B8AA0057511A /* Day10_Input.txt in Resources */,
 				738A2B4B257B4BEC00E662B9 /* Day05_Part2.txt in Resources */,
+				738D9C862582225F0057511A /* Day11_Part2.txt in Resources */,
 				7343617A2576291B00FA8D7F /* README.md in Resources */,
+				738D9C872582225F0057511A /* Day11_Part1.txt in Resources */,
 				738D9C10257CEDF10057511A /* Day07_TestInput01.txt in Resources */,
+				738D9C852582225F0057511A /* Day11_Discussion.md in Resources */,
 				7373BC642575CD0200622514 /* MainWindowController.xib in Resources */,
 				738A2B002577A77900E662B9 /* Day03_Discussion.md in Resources */,
 				738D9C0E257CEDF10057511A /* Day07_Part1.txt in Resources */,
@@ -685,6 +716,7 @@
 				7343618525762D9700FA8D7F /* GridPoint.swift in Sources */,
 				738D9C6C2580BA020057511A /* Day10.swift in Sources */,
 				734361402575E9F100FA8D7F /* Memory.swift in Sources */,
+				738D9C822582225F0057511A /* Day11.swift in Sources */,
 				738A2B49257B4BEC00E662B9 /* Day05.swift in Sources */,
 				7368FE9E2576BAA500FAFAA3 /* Node.swift in Sources */,
 				7373BC802575D0E100622514 /* DayNN.swift in Sources */,
