@@ -92,6 +92,7 @@
 		738D9C632580B8AA0057511A /* Day10_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C5E2580B8AA0057511A /* Day10_Input.txt */; };
 		738D9C642580B8AA0057511A /* Day10_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C5F2580B8AA0057511A /* Day10_TestInput01.txt */; };
 		738D9C6C2580BA020057511A /* Day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D9C6B2580BA020057511A /* Day10.swift */; };
+		738D9C772581E5040057511A /* Day10_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 738D9C762581E5040057511A /* Day10_TestInput02.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +209,7 @@
 		738D9C5E2580B8AA0057511A /* Day10_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day10_Input.txt; sourceTree = "<group>"; };
 		738D9C5F2580B8AA0057511A /* Day10_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day10_TestInput01.txt; sourceTree = "<group>"; };
 		738D9C6B2580BA020057511A /* Day10.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
+		738D9C762581E5040057511A /* Day10_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day10_TestInput02.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,6 +486,7 @@
 				738D9C5D2580B8AA0057511A /* Day10_Part1.txt */,
 				738D9C5C2580B8AA0057511A /* Day10_Part2.txt */,
 				738D9C5F2580B8AA0057511A /* Day10_TestInput01.txt */,
+				738D9C762581E5040057511A /* Day10_TestInput02.txt */,
 				738D9C6B2580BA020057511A /* Day10.swift */,
 			);
 			path = Day10;
@@ -639,6 +642,7 @@
 				7373BC392575CC0700622514 /* MainMenu.xib in Resources */,
 				738A2B032577A77900E662B9 /* Day03_Part2.txt in Resources */,
 				738A2AE62577294100E662B9 /* Day02_Discussion.md in Resources */,
+				738D9C772581E5040057511A /* Day10_TestInput02.txt in Resources */,
 				7343614A25760D2A00FA8D7F /* Day01_Part2.txt in Resources */,
 				738D9C0F257CEDF10057511A /* Day07_Discussion.md in Resources */,
 				738A2B37257A146000E662B9 /* Day04_TestInput03.txt in Resources */,
