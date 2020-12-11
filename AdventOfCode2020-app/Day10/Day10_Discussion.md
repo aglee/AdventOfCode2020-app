@@ -6,7 +6,7 @@ Key insight to start with, applicable to both parts: we have to sort the array b
 
 Part 1 can be expressed as: in traversing the sorted array of numbers, how many jumps are 1's and how many are 3's?
 
-Part 2 can be expressed as: how many subsequences of the array are there such that any pair of consecutive elements differ by at most 3?
+Part 2 can be expressed as: how many subsequences of the array are there such that any pair of consecutive elements differ by at most 3?  (Btw in the past I've thought of "subsequences" as synonmous with "subarrays".  It's only in recent years that I became aware of the more specific usage.)
 
 Key insights for Part 2:
 
