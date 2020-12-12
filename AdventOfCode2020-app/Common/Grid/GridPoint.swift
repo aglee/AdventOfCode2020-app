@@ -1,20 +1,71 @@
 import Foundation
 
-/// Represents a coordinate on an infinite 2-dimensional grid.
-///
-/// The stuff here assumes the y axis grows *downward*.
+/// Represents a 2D point with integer coordinates.  The y axis grows *downward* (positive
+/// y is *below* the origin).
 struct GridPoint: Hashable, CustomStringConvertible {
+	//TODO: Use custom operators for `+` etc.
+
 	static let zero = GridPoint(0, 0)
 
-	let x: Int
-	let y: Int
+	var x: Int
+	var y: Int
+	var manhattan: Int { return abs(x) + abs(y) }
 
-	func manhattan() -> Int {
-		return abs(x) + abs(y)
+	init(_ x: Int, _ y: Int) {
+		self.x = x
+		self.y = y
+	}
+
+	init(_ coords:(x: Int, y: Int)) {
+		self.init(coords.x, coords.y)
 	}
 
 	func manhattan(_ otherPoint: GridPoint) -> Int {
 		return abs(x - otherPoint.x) + abs(y - otherPoint.y)
+	}
+
+	mutating func add(_ dx: Int, _ dy: Int) {
+		(x, y) = (x + dx, y + dy)
+	}
+
+	mutating func subtract(_ dx: Int, _ dy: Int) {
+		(x, y) = (x - dx, y - dy)
+	}
+
+	mutating func moveByOne(_ dir: MoveDirection) {
+		let delta = dir.delta
+		add(delta.x, delta.y)
+	}
+
+	mutating func moveUp(_ amount: Int) {
+		y -= amount
+	}
+
+	mutating func moveDown(_ amount: Int) {
+		y += amount
+	}
+
+	mutating func moveLeft(_ amount: Int) {
+		x -= amount
+	}
+
+	mutating func moveRight(_ amount: Int) {
+		x += amount
+	}
+
+	/// Rotates the point 90 degrees counterclockwise around the origin.
+	mutating func rotate90Left() {
+		(x, y) = (y, -x)
+	}
+
+	/// Rotates the point 90 degrees clockwise around the origin.
+	mutating func rotate90Right() {
+		(x, y) = (-y, x)
+	}
+
+	/// Rotates the point 180 degrees around the origin.
+	mutating func rotate180() {
+		(x, y) = (-x, -y)
 	}
 
 	func minus(_ otherPoint: GridPoint) -> GridPoint {
@@ -23,6 +74,29 @@ struct GridPoint: Hashable, CustomStringConvertible {
 
 	func plus(_ otherPoint: GridPoint) -> GridPoint {
 		return GridPoint(x + otherPoint.x, y + otherPoint.y)
+	}
+
+	func times(_ multiplier: Int) -> GridPoint {
+		return GridPoint(multiplier * x, multiplier * y)
+	}
+
+	func movedByOne(_ dir: MoveDirection) -> GridPoint {
+		return self.plus(dir.delta)
+	}
+
+	/// Rotates the point 90 degrees counterclockwise around the origin.
+	func rotated90Left() -> GridPoint {
+		return GridPoint(y, -x)
+	}
+
+	/// Rotates the point 90 degrees clockwise around the origin.
+	func rotated90Right() -> GridPoint {
+		return GridPoint(-y, x)
+	}
+
+	/// Rotates the point 180 degrees around the origin.
+	func rotated180() -> GridPoint {
+		return GridPoint(-x, -y)
 	}
 
 	var description: String {
@@ -89,17 +163,4 @@ enum MoveDirection: Int {
 	}
 }
 
-extension GridPoint {
-	init(_ x: Int, _ y: Int) {
-		self.init(x: x, y: y)
-	}
-
-	init(_ coords:(x: Int, y: Int)) {
-		self.init(coords.x, coords.y)
-	}
-
-	func moved(_ dir: MoveDirection) -> GridPoint {
-		return self.plus(dir.delta)
-	}
-}
 

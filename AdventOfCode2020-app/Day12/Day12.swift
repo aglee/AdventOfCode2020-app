@@ -16,17 +16,15 @@ class Day12: DayNN {
 	typealias Move = (action: String, amount: Int)
 
 	class ShipForPart1: CustomStringConvertible {
-		var x = 0
-		var y = 0
+		var loc = GridPoint.zero
 		var dir: MoveDirection = .right
-		var manhattan: Int { return abs(x) + abs(y) }
 
 		func move(_ m: Move) {
 			switch m.action {
-			case "N": y -= m.amount
-			case "S": y += m.amount
-			case "E": x += m.amount
-			case "W": x -= m.amount
+			case "N": loc.moveUp(m.amount)
+			case "S": loc.moveDown(m.amount)
+			case "E": loc.moveRight(m.amount)
+			case "W": loc.moveLeft(m.amount)
 			case "L":
 				switch m.amount {
 				case 90: dir = dir.turned(.turnLeft)
@@ -42,54 +40,48 @@ class Day12: DayNN {
 				default: abort()
 				}
 			case "F":
-				let moveUnit = dir.delta
-				x += m.amount * moveUnit.x
-				y += m.amount * moveUnit.y
+				loc = loc.plus(dir.delta.times(m.amount))
 			default: abort()
 			}
 		}
 
 		var description: String {
-			return "(\(x), \(y), \(dir))"
+			return "(\(loc), \(dir))"
 		}
 	}
 
 	class ShipForPart2: CustomStringConvertible {
-		var x = 0
-		var y = 0
-		var wayX = 10
-		var wayY = -1
-		var manhattan: Int { return abs(x) + abs(y) }
+		var loc = GridPoint.zero
+		var waypoint = GridPoint(10, -1)
 
 		func move(_ m: Move) {
 			switch m.action {
-			case "N": wayY -= m.amount
-			case "S": wayY += m.amount
-			case "E": wayX += m.amount
-			case "W": wayX -= m.amount
+			case "N": waypoint.moveUp(m.amount)
+			case "S": waypoint.moveDown(m.amount)
+			case "E": waypoint.moveRight(m.amount)
+			case "W": waypoint.moveLeft(m.amount)
 			case "L":
 				switch m.amount {
-				case 90: (wayX, wayY) = (wayY, -wayX)
-				case 180: (wayX, wayY) = (-wayX, -wayY)
-				case 270: (wayX, wayY) = (-wayY, wayX)
+				case 90: waypoint.rotate90Left()
+				case 180: waypoint.rotate180()
+				case 270: waypoint.rotate90Right()
 				default: abort()
 				}
 			case "R":
 				switch m.amount {
-				case 90: (wayX, wayY) = (-wayY, wayX)
-				case 180: (wayX, wayY) = (-wayX, -wayY)
-				case 270: (wayX, wayY) = (wayY, -wayX)
+				case 90: waypoint.rotate90Right()
+				case 180: waypoint.rotate180()
+				case 270: waypoint.rotate90Left()
 				default: abort()
 				}
 			case "F":
-				x += m.amount * wayX
-				y += m.amount * wayY
+				loc = loc.plus(waypoint.times(m.amount))
 			default: abort()
 			}
 		}
 
 		var description: String {
-			return "(\(x), \(y), \(wayX), \(wayY))"
+			return "(\(loc), \(waypoint))"
 		}
 	}
 
@@ -109,7 +101,7 @@ class Day12: DayNN {
 			ship.move(m)
 		}
 
-		return String(ship.manhattan)
+		return String(ship.loc.manhattan)
 	}
 
 	override func solvePart2(inputLines: [String]) -> String {
@@ -120,7 +112,7 @@ class Day12: DayNN {
 			ship.move(m)
 		}
 
-		return String(ship.manhattan)
+		return String(ship.loc.manhattan)
 	}
 }
 
