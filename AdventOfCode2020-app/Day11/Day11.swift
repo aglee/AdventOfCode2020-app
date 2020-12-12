@@ -12,10 +12,6 @@ class SeatGrid: CharGrid {
 	required override init(inputLines: [String]) {
 		super.init(inputLines: inputLines)
 
-		computeCachedPointsOfInterest()
-	}
-
-	func computeCachedPointsOfInterest() {
 		for x in 0..<width {
 			for y in 0..<height {
 				cachedPointsOfInterest[GridPoint(x, y)] = pointsOfInterest(x, y)
@@ -23,6 +19,8 @@ class SeatGrid: CharGrid {
 		}
 	}
 
+	/// Called by `onePass(outputGrid:)`.  Returns the value that should go into
+	/// `outputGrid` based on the corresponding value in the receiver.
 	func newValueForPoint(_ x: Int, _ y: Int) -> String {
 		let currentValue = self[x, y]
 
@@ -42,12 +40,14 @@ class SeatGrid: CharGrid {
 		}
 	}
 
+	/// Returns points that should be examined by `newValueForPoint(_, _)`.
 	func pointsOfInterest(_ x: Int, _ y: Int) -> [GridPoint] {
 		neighboringPoints(of: GridPoint(x, y))
 	}
 
-	/// Sets new values for all points in `grid2`, based on the value in `grid1`.
-	/// Returns the number of points at which the old and new values were different.
+	/// Sets the value of every point in `outputGrid`, based on the corresponding value in
+	/// `self`.  Returns the number of points at which `newValueForPoint(_, _)` returned a
+	/// different value.
 	func onePass(outputGrid: SeatGrid) -> Int {
 		var numSeatsChanged = 0
 		for x in 0..<width {
