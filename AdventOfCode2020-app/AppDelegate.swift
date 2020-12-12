@@ -33,10 +33,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 
 		for test in tests {
-			if test.doTest() == test.expectedResult {
+			let testResult = test.doTest()
+			if testResult == test.expectedResult {
 				print("Test '\(test.name)' -- PASSED")
 			} else {
-				print("Test '\(test.name)' -- FAILED: expected '\(test.expectedResult)', got '\(test.doTest())'")
+				print("Test '\(test.name)' -- FAILED: expected '\(test.expectedResult)', got '\(testResult)'")
 				return false
 			}
 		}
