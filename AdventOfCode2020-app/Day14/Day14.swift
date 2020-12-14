@@ -2,7 +2,7 @@ import Foundation
 
 class Day14: DayNN {
 	init() {
-		super.init("<put description here>")
+		super.init("Docking Data")
 		self.part1Tests = [
 			testPart1(fileNumber: 1, expectedResult: "165"),
 		]
@@ -24,13 +24,13 @@ class Day14: DayNN {
 	class SeaportComputer {
 		fileprivate var mem = Memory()
 
-		// Subclasses override this.
+		/// Subclasses override this.
 		func updateMasks(using s: String) {
 			abort()
 		}
 
-		// Subclasses override this.  Each subclass does its own tweak to the address and
-		// value before updating memory.
+		/// Subclasses override this.  Each subclass does its own tweak to the address or
+		/// value before updating `mem`.
 		func updateMemory(rawAddress: Int, rawValue: Int) {
 			abort()
 		}
