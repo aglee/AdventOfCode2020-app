@@ -18,12 +18,16 @@ import Foundation
 /// ```
 struct Memory {
 	/// Maps addresses to values.
-	private var valuesByAddress = [Int: Int]()
+	var valuesByAddress = [Int: Int]()
 
 	init(memoryValues: [Int]) {
 		for (address, value) in memoryValues.enumerated() {
 			valuesByAddress[address] = value
 		}
+	}
+
+	init() {
+		self.init(memoryValues: [])
 	}
 
 	subscript(address: Int) -> Int {
