@@ -26,6 +26,7 @@
 		731816202585FE08008CAC8F /* Day14_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7318161A2585FE08008CAC8F /* Day14_TestInput01.txt */; };
 		731816212585FE08008CAC8F /* Day14_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 7318161B2585FE08008CAC8F /* Day14_Discussion.md */; };
 		7318162C25873DE1008CAC8F /* Day14_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7318162B25873DE1008CAC8F /* Day14_TestInput02.txt */; };
+		732640CB2588018B0096D50E /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732640CA2588018A0096D50E /* Heap.swift */; };
 		7343611E2575E81B00FA8D7F /* Day01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343611D2575E81B00FA8D7F /* Day01.swift */; };
 		734361302575E94E00FA8D7F /* IntcodeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343612D2575E94E00FA8D7F /* IntcodeVM.swift */; };
 		734361312575E94E00FA8D7F /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343612E2575E94E00FA8D7F /* Grid.swift */; };
@@ -157,6 +158,7 @@
 		7318161A2585FE08008CAC8F /* Day14_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day14_TestInput01.txt; sourceTree = "<group>"; };
 		7318161B2585FE08008CAC8F /* Day14_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day14_Discussion.md; sourceTree = "<group>"; };
 		7318162B25873DE1008CAC8F /* Day14_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day14_TestInput02.txt; sourceTree = "<group>"; };
+		732640CA2588018A0096D50E /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		7343611D2575E81B00FA8D7F /* Day01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day01.swift; sourceTree = "<group>"; };
 		7343612D2575E94E00FA8D7F /* IntcodeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntcodeVM.swift; sourceTree = "<group>"; };
 		7343612E2575E94E00FA8D7F /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				7368FE952576415F00FAFAA3 /* README.md */,
 				7368FE962576B9A300FAFAA3 /* Graph */,
 				734361442575EBB400FA8D7F /* Grid */,
+				732640CA2588018A0096D50E /* Heap.swift */,
 				734361382575E9B900FA8D7F /* Intcode */,
 				7368FEB62576CC5400FAFAA3 /* lcm-gcd.swift */,
 				738C023C25763FFB007338D5 /* Util.swift */,
@@ -829,6 +832,7 @@
 				738C023D25763FFB007338D5 /* Util.swift in Sources */,
 				731816002584A0D2008CAC8F /* Day13.swift in Sources */,
 				738A2B57257B656900E662B9 /* DayNN+Tests.swift in Sources */,
+				732640CB2588018B0096D50E /* Heap.swift in Sources */,
 				738A2B66257C4C7900E662B9 /* Day06.swift in Sources */,
 				738D9C27257E1DE10057511A /* Day08.swift in Sources */,
 				738A2B3C257A1B6A00E662B9 /* Passport.swift in Sources */,
