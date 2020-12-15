@@ -1,41 +1,44 @@
 import Foundation
 
 class MemoryGame {
-	private var numTurnsTaken = 0
 	private var lastNumberSpoken = -1
 
-	/// Turn numbers in this dictionary are 1-based.
-	private var lastTwoTurnsWhenSpoken = [Int: [Int]]()
+	/// The turn number on which `lastNumberSpoken` was spoken.  Turn numbers are 1-based:
+	/// the first turn has turn number 1, the second turn number 2, etc.
+	private var lastTurnNumber = 0
+
+	/// Keys are all the numbers that have ever been spoken, *except* for the last.
+	/// Values are the turn number of the last time that number was spoken.
+	private var history = [Int: Int]()
 
 	func play(input: String, numTurns: Int) -> String {
+		assert(!input.isEmpty, "This only works if the input string is non-empty.")
 		let inputNums = input.split(separator: ",").map { Int($0)! }
 		for n in inputNums {
 			speak(n)
 		}
-
-		while numTurnsTaken < numTurns {
-			takeOneTurn()
+		while lastTurnNumber < numTurns {
+			speakNext()
 		}
 		return String(lastNumberSpoken)
 	}
 
-	private func takeOneTurn() {
-		let whenSpoken = lastTwoTurnsWhenSpoken[lastNumberSpoken]!
-		if whenSpoken.count == 1 {
-			speak(0)
+	private func speakNext() {
+		assert(history.count > 0,
+			   "This method should only be called after the initial numbers have all been spoken.")
+		if let whenLastNumberWasPreviouslySpoken = history[lastNumberSpoken] {
+			speak(lastTurnNumber - whenLastNumberWasPreviouslySpoken)
 		} else {
-			speak(whenSpoken[whenSpoken.count - 1] - whenSpoken[whenSpoken.count - 2])
+			speak(0)
 		}
 	}
 
 	private func speak(_ n: Int) {
-		numTurnsTaken += 1
-		lastNumberSpoken = n
-		if let whenSpoken = lastTwoTurnsWhenSpoken[n] {
-			lastTwoTurnsWhenSpoken[n] = [whenSpoken.last!, numTurnsTaken]
-		} else {
-			lastTwoTurnsWhenSpoken[n] = [numTurnsTaken]
+		if lastTurnNumber > 0 {
+			history[lastNumberSpoken] = lastTurnNumber
 		}
+		lastTurnNumber += 1
+		lastNumberSpoken = n
 	}
 }
 
@@ -52,11 +55,9 @@ class Day15: DayNN {
 			test(input: "3,1,2", function: { return self.solvePart1($0) }, expectedResult: "1836"),
 		]
 		self.part2Tests = [
-			// These tests take 14 seconds each with my brute-force implementation.
-			// Unless and until I figure out a faster solution, I figure I can uncomment
-			// them if I ever want to confirm for myself that they pass.  I ran the first
-			// two and they passed, plus I got the right answer using the "real" input.
-//			test(input: "0,3,6", function: { return self.solvePart2($0) }, expectedResult: "175594"),
+			// These tests take 7 seconds each on my first-gen M1 MBA.  I figure it's
+			// enough to run just one of them to be comfortable that my solution works.
+			test(input: "0,3,6", function: { return self.solvePart2($0) }, expectedResult: "175594"),
 //			test(input: "1,3,2", function: { return self.solvePart2($0) }, expectedResult: "2578"),
 //			test(input: "2,1,3", function: { return self.solvePart2($0) }, expectedResult: "3544142"),
 //			test(input: "1,2,3", function: { return self.solvePart2($0) }, expectedResult: "261214"),
