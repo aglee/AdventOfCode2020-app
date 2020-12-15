@@ -27,7 +27,6 @@
 		731816212585FE08008CAC8F /* Day14_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 7318161B2585FE08008CAC8F /* Day14_Discussion.md */; };
 		7318162C25873DE1008CAC8F /* Day14_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7318162B25873DE1008CAC8F /* Day14_TestInput02.txt */; };
 		732640CB2588018B0096D50E /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732640CA2588018A0096D50E /* Heap.swift */; };
-		732640EB25881C300096D50E /* Day15_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 732640E525881C300096D50E /* Day15_TestInput01.txt */; };
 		732640EC25881C300096D50E /* Day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732640E625881C300096D50E /* Day15.swift */; };
 		732640ED25881C300096D50E /* Day15_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 732640E725881C300096D50E /* Day15_Input.txt */; };
 		732640EE25881C300096D50E /* Day15_Part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 732640E825881C300096D50E /* Day15_Part2.txt */; };
@@ -165,7 +164,6 @@
 		7318161B2585FE08008CAC8F /* Day14_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day14_Discussion.md; sourceTree = "<group>"; };
 		7318162B25873DE1008CAC8F /* Day14_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day14_TestInput02.txt; sourceTree = "<group>"; };
 		732640CA2588018A0096D50E /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
-		732640E525881C300096D50E /* Day15_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day15_TestInput01.txt; sourceTree = "<group>"; };
 		732640E625881C300096D50E /* Day15.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day15.swift; sourceTree = "<group>"; };
 		732640E725881C300096D50E /* Day15_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day15_Input.txt; sourceTree = "<group>"; };
 		732640E825881C300096D50E /* Day15_Part2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day15_Part2.txt; sourceTree = "<group>"; };
@@ -348,7 +346,6 @@
 				732640E725881C300096D50E /* Day15_Input.txt */,
 				732640E925881C300096D50E /* Day15_Part1.txt */,
 				732640E825881C300096D50E /* Day15_Part2.txt */,
-				732640E525881C300096D50E /* Day15_TestInput01.txt */,
 				732640E625881C300096D50E /* Day15.swift */,
 			);
 			path = Day15;
@@ -756,7 +753,6 @@
 				738A2B63257C4C7900E662B9 /* Day06_Part1.txt in Resources */,
 				738A2B272579D5E900E662B9 /* Day04_Part2.txt in Resources */,
 				738A2B67257C4C7900E662B9 /* Day06_TestInput01.txt in Resources */,
-				732640EB25881C300096D50E /* Day15_TestInput01.txt in Resources */,
 				738D9C842582225F0057511A /* Day11_TestInput01.txt in Resources */,
 				732640EE25881C300096D50E /* Day15_Part2.txt in Resources */,
 				7318161C2585FE08008CAC8F /* Day14_Part2.txt in Resources */,
