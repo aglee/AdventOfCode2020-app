@@ -1,23 +1,26 @@
 import Foundation
 
 class MemoryGame {
-	var numTurnsTaken = 0
-	var lastNumberSpoken = -1
-	var turnNumbersWhenSpoken = [Int: [Int]]()
+	private var numTurnsTaken = 0
+	private var lastNumberSpoken = -1
 
+	/// Turn numbers in this dictionary are 1-based.
+	private var lastTwoTurnsWhenSpoken = [Int: [Int]]()
 
-	var spokenNumbers = [Int]()
-
-
-	init(_ s: String) {
-		let inputNums = s.split(separator: ",").map { Int($0)! }
+	func play(input: String, numTurns: Int) -> String {
+		let inputNums = input.split(separator: ",").map { Int($0)! }
 		for n in inputNums {
 			speak(n)
 		}
+
+		while numTurnsTaken < numTurns {
+			takeOneTurn()
+		}
+		return String(lastNumberSpoken)
 	}
 
-	func takeOneTurn() {
-		let whenSpoken = turnNumbersWhenSpoken[lastNumberSpoken]!
+	private func takeOneTurn() {
+		let whenSpoken = lastTwoTurnsWhenSpoken[lastNumberSpoken]!
 		if whenSpoken.count == 1 {
 			speak(0)
 		} else {
@@ -25,25 +28,20 @@ class MemoryGame {
 		}
 	}
 
-	func speak(_ n: Int) {
-
-
-//		spokenNumbers.append(n)
-
-
+	private func speak(_ n: Int) {
 		numTurnsTaken += 1
 		lastNumberSpoken = n
-		if let whenSpoken = turnNumbersWhenSpoken[n] {
-			turnNumbersWhenSpoken[n] = [whenSpoken.last!, numTurnsTaken]
+		if let whenSpoken = lastTwoTurnsWhenSpoken[n] {
+			lastTwoTurnsWhenSpoken[n] = [whenSpoken.last!, numTurnsTaken]
 		} else {
-			turnNumbersWhenSpoken[n] = [numTurnsTaken]
+			lastTwoTurnsWhenSpoken[n] = [numTurnsTaken]
 		}
 	}
 }
 
 class Day15: DayNN {
 	init() {
-		super.init("PUT_DESCRIPTION_HERE")
+		super.init("Rambunctious Recitation")
 		self.part1Tests = [
 			test(input: "0,3,6", function: { return self.solvePart1($0) }, expectedResult: "436"),
 			test(input: "1,3,2", function: { return self.solvePart1($0) }, expectedResult: "1"),
@@ -54,32 +52,28 @@ class Day15: DayNN {
 			test(input: "3,1,2", function: { return self.solvePart1($0) }, expectedResult: "1836"),
 		]
 		self.part2Tests = [
+			// These tests take 14 seconds each with my brute-force implementation.
+			// Unless and until I figure out a faster solution, I figure I can uncomment
+			// them if I ever want to confirm for myself that they pass.  I ran the first
+			// two and they passed, plus I got the right answer using the "real" input.
 //			test(input: "0,3,6", function: { return self.solvePart2($0) }, expectedResult: "175594"),
 //			test(input: "1,3,2", function: { return self.solvePart2($0) }, expectedResult: "2578"),
+//			test(input: "2,1,3", function: { return self.solvePart2($0) }, expectedResult: "3544142"),
+//			test(input: "1,2,3", function: { return self.solvePart2($0) }, expectedResult: "261214"),
+//			test(input: "2,3,1", function: { return self.solvePart2($0) }, expectedResult: "6895259"),
+//			test(input: "3,2,1", function: { return self.solvePart2($0) }, expectedResult: "18"),
+//			test(input: "3,1,2", function: { return self.solvePart2($0) }, expectedResult: "362"),
 		]
 	}
 
 	// MARK: - Solving
 
 	private func solvePart1(_ s: String) -> String {
-		let game = MemoryGame(s)
-		while game.numTurnsTaken < 2020 {
-			game.takeOneTurn()
-		}
-		return String(game.lastNumberSpoken)
+		return MemoryGame().play(input: s, numTurns: 2020)
 	}
 
 	private func solvePart2(_ s: String) -> String {
-		NSLog("START")
-		let game = MemoryGame(s)
-		while game.numTurnsTaken < 30_000_000 {
-			if game.numTurnsTaken % 1_000_000 == 0 {
-				NSLog("    numTurnsTaken = %ld", game.numTurnsTaken)
-			}
-			game.takeOneTurn()
-		}
-		NSLog("FINISH")
-		return String(game.lastNumberSpoken)
+		return MemoryGame().play(input: s, numTurns: 30_000_000)
 	}
 
 	override func solvePart1(inputLines: [String]) -> String {
