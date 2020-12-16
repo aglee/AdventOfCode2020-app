@@ -193,6 +193,9 @@ class Day16: DayNN {
 			// candidate name.  This is not mathematically guaranteed to work.  I'm taking
 			// a leap of faith that the data has been constructed in a way that will make
 			// it work.
+			//
+			// `definiteNames` is a list of names waiting to be removed from consideration
+			// for the field positions they are no longer candidates for.
 			var definiteNames = possible.filter { $0.count == 1 }.map { $0.first! }
 			while !definiteNames.isEmpty {
 				let name = definiteNames.removeLast()
@@ -200,6 +203,8 @@ class Day16: DayNN {
 					if possible[fieldPosition].count > 1 {
 						possible[fieldPosition].remove(name)
 
+						// If this field position is now discovered to have a "definite"
+						// field name, add that name to our list.
 						if possible[fieldPosition].count == 1 {
 							definiteNames.append(possible[fieldPosition].first!)
 						}
