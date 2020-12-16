@@ -10,7 +10,7 @@ For Part 1 I remembered *all* the times each number was spoken.  That was fine f
 
 I checked /r/adventofcode and saw that other people were saving only a *single turn number* for each number spoken.  I had tried to come up with a solution along those lines but hadn't quite seen how.  But once I saw that such a solution existed, *now* I was able to see it, without even reading other people's solutions.  Interesting how knowing in advance that a solution exists affects ability to see it.  I've noticed the same when watching chess videos by [Agadmator](https://www.youtube.com/c/AGADMATOR/videos) and others.  There are winning moves I'd never have spotted on my own, but once the commentator pauses the game and asks if we can figure out what the winning move was, *then* I can sometimes spot it.
 
-After committing my [initial solution](3abe6a182be4de3ed597df4ba48822fdf8d47f24), I modified it to use the single-number approach and now it runs in 7 seconds rather than 24 seconds.
+After committing my initial solution, I modified it to use the single-number approach and now it runs in 7 seconds rather than 24 seconds.
 
 
 ## Python versions

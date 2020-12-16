@@ -1,4 +1,4 @@
-# Day 16 - PUT_DESCRIPTION_HERE
+# Day 16 - Ticket Translation
 
 <https://adventofcode.com/2020/day/16>
 
