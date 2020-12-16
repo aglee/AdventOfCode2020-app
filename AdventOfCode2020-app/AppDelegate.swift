@@ -27,12 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	/// Returns true if all tests pass.
 	private func runTests(_ tests: [Test]) -> Bool {
-		if tests.count == 0 {
-			print("No tests were specified.")
-			return true
-		}
+		print("\(tests.count) test\(tests.count == 1 ? " was" : "s were") specified.")
 
 		for test in tests {
+			print("Test '\(test.name)' -- Starting...")
 			let testResult = test.doTest()
 			if testResult == test.expectedResult {
 				print("Test '\(test.name)' -- PASSED")
@@ -53,12 +51,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		print("--- Part 1 ---")
 		guard runTests(day.part1Tests) else { return }
-		print("Answer for Part 1: \(day.solvePart1())")
+		print("Part 1 final answer -- Starting...")
+		print("Part 1 final answer -- \(day.solvePart1())")
 		print()
 
 		print("--- Part 2 ---")
 		guard runTests(day.part2Tests) else { return }
-		print("Answer for Part 2: \(day.solvePart2())")
+		print("Part 2 final answer -- Starting...")
+		print("Part 2 final answer -- \(day.solvePart2())")
 		print()
 	}
 }
