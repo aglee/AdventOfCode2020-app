@@ -45,6 +45,8 @@
 		7326411F2589FDF20096D50E /* Day17_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 732641192589FDF20096D50E /* Day17_TestInput01.txt */; };
 		732641202589FDF20096D50E /* Day17_Part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7326411A2589FDF20096D50E /* Day17_Part2.txt */; };
 		732641212589FDF20096D50E /* Day17_Part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7326411B2589FDF20096D50E /* Day17_Part1.txt */; };
+		73264150258B30CB0096D50E /* Slab3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326414F258B30CB0096D50E /* Slab3D.swift */; };
+		73264155258B30F80096D50E /* Slab4D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73264154258B30F80096D50E /* Slab4D.swift */; };
 		7343611E2575E81B00FA8D7F /* Day01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343611D2575E81B00FA8D7F /* Day01.swift */; };
 		734361302575E94E00FA8D7F /* IntcodeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343612D2575E94E00FA8D7F /* IntcodeVM.swift */; };
 		734361312575E94E00FA8D7F /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343612E2575E94E00FA8D7F /* Grid.swift */; };
@@ -195,6 +197,8 @@
 		732641192589FDF20096D50E /* Day17_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day17_TestInput01.txt; sourceTree = "<group>"; };
 		7326411A2589FDF20096D50E /* Day17_Part2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day17_Part2.txt; sourceTree = "<group>"; };
 		7326411B2589FDF20096D50E /* Day17_Part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day17_Part1.txt; sourceTree = "<group>"; };
+		7326414F258B30CB0096D50E /* Slab3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slab3D.swift; sourceTree = "<group>"; };
+		73264154258B30F80096D50E /* Slab4D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slab4D.swift; sourceTree = "<group>"; };
 		7343611D2575E81B00FA8D7F /* Day01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day01.swift; sourceTree = "<group>"; };
 		7343612D2575E94E00FA8D7F /* IntcodeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntcodeVM.swift; sourceTree = "<group>"; };
 		7343612E2575E94E00FA8D7F /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
@@ -400,6 +404,8 @@
 				7326411A2589FDF20096D50E /* Day17_Part2.txt */,
 				732641192589FDF20096D50E /* Day17_TestInput01.txt */,
 				732641162589FDF20096D50E /* Day17.swift */,
+				7326414F258B30CB0096D50E /* Slab3D.swift */,
+				73264154258B30F80096D50E /* Slab4D.swift */,
 			);
 			path = Day17;
 			sourceTree = "<group>";
@@ -484,7 +490,6 @@
 		7373BC322575CC0500622514 /* AdventOfCode2020-app */ = {
 			isa = PBXGroup;
 			children = (
-				7373BC332575CC0500622514 /* AppDelegate.swift */,
 				7343614E2576105F00FA8D7F /* Main Window */,
 				7343612B2575E94E00FA8D7F /* Common */,
 				7373BC7F2575D0E100622514 /* DayNN.swift */,
@@ -506,6 +511,7 @@
 				732640E425881C300096D50E /* Day15 */,
 				732640FD2588B9430096D50E /* Day16 */,
 				732641152589FDF20096D50E /* Day17 */,
+				7373BC332575CC0500622514 /* AppDelegate.swift */,
 				7373BC352575CC0700622514 /* Assets.xcassets */,
 				7373BC372575CC0700622514 /* MainMenu.xib */,
 				7373BC3A2575CC0700622514 /* Info.plist */,
@@ -918,6 +924,7 @@
 				7373BC802575D0E100622514 /* DayNN.swift in Sources */,
 				738A2B022577A77900E662B9 /* Day03.swift in Sources */,
 				738A2B2A2579D5E900E662B9 /* Day04.swift in Sources */,
+				73264155258B30F80096D50E /* Slab4D.swift in Sources */,
 				7343611E2575E81B00FA8D7F /* Day01.swift in Sources */,
 				734361302575E94E00FA8D7F /* IntcodeVM.swift in Sources */,
 				734361312575E94E00FA8D7F /* Grid.swift in Sources */,
@@ -931,6 +938,7 @@
 				738A2B66257C4C7900E662B9 /* Day06.swift in Sources */,
 				738D9C27257E1DE10057511A /* Day08.swift in Sources */,
 				738A2B3C257A1B6A00E662B9 /* Passport.swift in Sources */,
+				73264150258B30CB0096D50E /* Slab3D.swift in Sources */,
 				7326411C2589FDF20096D50E /* Day17.swift in Sources */,
 				7373BC632575CD0200622514 /* MainWindowController.swift in Sources */,
 				7373BC342575CC0500622514 /* AppDelegate.swift in Sources */,
