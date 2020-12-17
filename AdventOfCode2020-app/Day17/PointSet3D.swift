@@ -1,71 +1,76 @@
 struct Point3D: Hashable {
-	var x = 0
-	var y = 0
-	var z = 0
+	let x: Int, y: Int, z: Int
 
 	init(_ x: Int, _ y: Int, _ z: Int) {
 		(self.x, self.y, self.z) = (x, y, z)
 	}
 }
 
-class Slab3D {
-	var minX = 0
-	var maxX = 0
-	var minY = 0
-	var maxY = 0
-	var minZ = 0
-	var maxZ = 0
-	var activePoints = Set<Point3D>()
+/// Set of points in 3-space.  The min and max properties give the bounding box containing
+/// all points in the set.
+struct PointSet3D {
+	private(set) var (minX, maxX) = (0, 0)
+	private(set) var (minY, maxY) = (0, 0)
+	private(set) var (minZ, maxZ) = (0, 0)
+	private(set) var allPoints = Set<Point3D>()
 
 	init(_ inputLines: [String]) {
 		for y in 0..<inputLines.count {
 			let chars = inputLines[y].map { String($0) }
 			for x in 0..<chars.count {
 				if chars[x] == "#" {
-					addActive(x, y, 0)
+					add(x, y, 0)
 				}
 			}
 		}
 	}
 
-	convenience init() {
+	init() {
 		self.init([])
 	}
 
-	func addActive(_ x: Int, _ y: Int, _ z: Int) {
+	mutating func add(_ x: Int, _ y: Int, _ z: Int) {
 		if x < minX { minX = x }
 		if x > maxX { maxX = x }
 		if y < minY { minY = y }
 		if y > maxY { maxY = y }
 		if z < minZ { minZ = z }
 		if z > maxZ { maxZ = z }
-		activePoints.insert(Point3D(x, y, z))
+		allPoints.insert(Point3D(x, y, z))
 	}
 
-	func cycle() -> Slab3D {
-		let newSlab = Slab3D()
+	/// Applies the Conway-ish rules and returns the resulting set of active points.
+	func cycle() -> PointSet3D {
+		var newActiveSet = PointSet3D()
 
+		// Examine all points in a box **one larger in every direction** than the bounding
+		// box of all our active points.  Any point outside that box has no active
+		// neighbors, so will remain inactive.
 		for x in (minX - 1)...(maxX + 1) {
 			for y in (minY - 1)...(maxY + 1) {
 				for z in (minZ - 1)...(maxZ + 1) {
 					let point = Point3D(x, y, z)
 					let numActiveNeighbors = (neighbors(of: point)
-												.filter { activePoints.contains($0) }
+												.filter { allPoints.contains($0) }
 												.count)
-					if activePoints.contains(point) {
+					if allPoints.contains(point) {
+						// Active points *remain* active if they have the right number of
+						// active neighbors.
 						if numActiveNeighbors == 2 || numActiveNeighbors == 3 {
-							newSlab.addActive(x, y, z)
+							newActiveSet.add(x, y, z)
 						}
 					} else {
+						// Inactive points *become* active if they have the right number
+						// of active neighbors.
 						if numActiveNeighbors == 3 {
-							newSlab.addActive(x, y, z)
+							newActiveSet.add(x, y, z)
 						}
 					}
 				}
 			}
 		}
 
-		return newSlab
+		return newActiveSet
 	}
 
 	func neighbors(of point: Point3D) -> [Point3D] {
@@ -89,7 +94,7 @@ class Slab3D {
 				var line = ""
 				for x in minX...maxX {
 					let point = Point3D(x, y, z)
-					line += (activePoints.contains(point) ? "#" : ".")
+					line += (allPoints.contains(point) ? "#" : ".")
 				}
 				print(line)
 			}

@@ -2,7 +2,7 @@ import Foundation
 
 class Day17: DayNN {
 	init() {
-		super.init("PUT_DESCRIPTION_HERE")
+		super.init("Conway Cubes")
 		self.part1Tests = [
 			testPart1(fileNumber: 1, expectedResult: "112"),
 		]
@@ -14,19 +14,19 @@ class Day17: DayNN {
 	// MARK: - Solving
 
 	override func solvePart1(inputLines: [String]) -> String {
-		var slab = Slab3D(inputLines)
+		var activePoints = PointSet3D(inputLines)
 		for _ in 0..<6 {
-			slab = slab.cycle()
+			activePoints = activePoints.cycle()
 		}
-		return String(slab.activePoints.count)
+		return String(activePoints.allPoints.count)
 	}
 
 	override func solvePart2(inputLines: [String]) -> String {
-		var slab = Slab4D(inputLines)
+		var activePoints = PointSet4D(inputLines)
 		for _ in 0..<6 {
-			slab = slab.cycle()
+			activePoints = activePoints.cycle()
 		}
-		return String(slab.activePoints.count)
+		return String(activePoints.allPoints.count)
 	}
 }
 

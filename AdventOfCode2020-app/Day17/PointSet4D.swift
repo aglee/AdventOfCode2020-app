@@ -1,41 +1,36 @@
+/// Same as `Point3D`, but in 4 dimensions.
 struct Point4D: Hashable {
-	var x = 0
-	var y = 0
-	var z = 0
-	var w = 0
+	let x: Int, y: Int, z: Int, w: Int
 
 	init(_ x: Int, _ y: Int, _ z: Int, _ w: Int) {
 		(self.x, self.y, self.z, self.w) = (x, y, z, w)
 	}
 }
 
-class Slab4D {
-	var minX = 0
-	var maxX = 0
-	var minY = 0
-	var maxY = 0
-	var minZ = 0
-	var maxZ = 0
-	var minW = 0
-	var maxW = 0
-	var activePoints = Set<Point4D>()
+/// Same as `ActiveSet3D`, but in 4 dimensions.
+struct PointSet4D {
+	private(set) var (minX, maxX) = (0, 0)
+	private(set) var (minY, maxY) = (0, 0)
+	private(set) var (minZ, maxZ) = (0, 0)
+	private(set) var (minW, maxW) = (0, 0)
+	private(set) var allPoints = Set<Point4D>()
 
 	init(_ inputLines: [String]) {
 		for y in 0..<inputLines.count {
 			let chars = inputLines[y].map { String($0) }
 			for x in 0..<chars.count {
 				if chars[x] == "#" {
-					addActive(x, y, 0, 0)
+					add(x, y, 0, 0)
 				}
 			}
 		}
 	}
 
-	convenience init() {
+	init() {
 		self.init([])
 	}
 
-	func addActive(_ x: Int, _ y: Int, _ z: Int, _ w: Int) {
+	mutating func add(_ x: Int, _ y: Int, _ z: Int, _ w: Int) {
 		if x < minX { minX = x }
 		if x > maxX { maxX = x }
 		if y < minY { minY = y }
@@ -44,27 +39,31 @@ class Slab4D {
 		if z > maxZ { maxZ = z }
 		if w < minW { minW = w }
 		if w > maxW { maxW = w }
-		activePoints.insert(Point4D(x, y, z, w))
+		allPoints.insert(Point4D(x, y, z, w))
 	}
 
-	func cycle() -> Slab4D {
-		let newSlab = Slab4D()
+	/// Applies the Conway-ish rules and returns the resulting set of active points.
+	func cycle() -> PointSet4D {
+		var newActiveSet = PointSet4D()
 
+		// Examine all points in a box **one larger in every direction** than the bounding
+		// box of all our active points.  Any point outside that box has no active
+		// neighbors, so will remain inactive.
 		for x in (minX - 1)...(maxX + 1) {
 			for y in (minY - 1)...(maxY + 1) {
 				for z in (minZ - 1)...(maxZ + 1) {
 					for w in (minW - 1)...(maxW + 1) {
 						let point = Point4D(x, y, z, w)
 						let numActiveNeighbors = (neighbors(of: point)
-													.filter { activePoints.contains($0) }
+													.filter { allPoints.contains($0) }
 													.count)
-						if activePoints.contains(point) {
+						if allPoints.contains(point) {
 							if numActiveNeighbors == 2 || numActiveNeighbors == 3 {
-								newSlab.addActive(x, y, z, w)
+								newActiveSet.add(x, y, z, w)
 							}
 						} else {
 							if numActiveNeighbors == 3 {
-								newSlab.addActive(x, y, z, w)
+								newActiveSet.add(x, y, z, w)
 							}
 						}
 					}
@@ -72,7 +71,7 @@ class Slab4D {
 			}
 		}
 
-		return newSlab
+		return newActiveSet
 	}
 
 	func neighbors(of point: Point4D) -> [Point4D] {
