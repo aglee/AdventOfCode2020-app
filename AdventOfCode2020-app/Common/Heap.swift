@@ -1,4 +1,4 @@
-////// Modified the code from this Ray Wenderlich tutorial:
+/// Modified the code from this Ray Wenderlich tutorial:
 /// <https://www.raywenderlich.com/586-swift-algorithm-club-heap-and-priority-queue-data-structure>.
 struct Heap<Element> {
 	// MARK: - Properties

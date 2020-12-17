@@ -10,5 +10,7 @@ It was convenient to be able to easily declare an array of `ClosedRange<Int>`.  
 
 I find simple typealiases sometimes help with readability, e.g. `typealias Ticket = Array<Int>`.  It seems easier for my brain to see `Ticket` and remember it's an array of integers than to see an array of integers and remember it's there to represent a ticket.
 
+Afterwards I remembered I could have used a `groupedLines` function that I'd written for an earlier puzzle this year, precisely for the case where the input uses empty lines to separate sections.  It would have saved me a couple of minutes.
+
 
 
