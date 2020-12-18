@@ -30,12 +30,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		print("\(tests.count) test\(tests.count == 1 ? " was" : "s were") specified.")
 
 		for test in tests {
-			print("Test '\(test.name)' -- Starting...")
+			print("Test '\(test.name)'... ", terminator: "")
 			let testResult = test.doTest()
 			if testResult == test.expectedResult {
-				print("Test '\(test.name)' -- PASSED")
+				print("PASSED")
 			} else {
-				print("Test '\(test.name)' -- FAILED: expected '\(test.expectedResult)', got '\(testResult)'")
+				print("FAILED: expected '\(test.expectedResult)', got '\(testResult)'")
 				return false
 			}
 		}
@@ -51,14 +51,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		print("--- Part 1 ---")
 		guard runTests(day.part1Tests) else { return }
-		print("Part 1 final answer -- Starting...")
-		print("Part 1 final answer -- \(day.solvePart1())")
+		print("Part 1 final answer is... ", terminator: "")
+		print(day.solvePart1())
 		print()
 
 		print("--- Part 2 ---")
 		guard runTests(day.part2Tests) else { return }
-		print("Part 2 final answer -- Starting...")
-		print("Part 2 final answer -- \(day.solvePart2())")
+		print("Part 2 final answer is... ", terminator: "")
+		print(day.solvePart2())
 		print()
 	}
 }
