@@ -47,68 +47,18 @@ class Day18: DayNN {
 
 	// MARK: - Solving
 
-	/// Assumes all numbers are single non-zero digits, and that the input string is
-	/// well-formed (no unexpected characters, parens are balanced, etc.).
 	func evalForPart1(_ s: String) -> Int {
-		func eval() -> Int {
-			func processValue(_ value: Int) {
-				if result == nil {
-					result = value
-				} else {
-					if op == "+" {
-						result = result! + value
-					} else if op == "*" {
-						result = result! * value
-					} else {
-						abort()
-					}
-					op = nil
-				}
-
-//				print("processed value \(value), result is \(result!)")
-			}
-
-//			print("ENTERING eval")
-			var op: String?
-			var result: Int?
-			while charIndex < chars.count {
-				let ch = chars[charIndex]
-				charIndex += 1
-
-				switch ch {
-				case " ":
-					// We can ignore spaces.
-					()
-				case "1"..."9":
-					processValue(Int(ch)!)
-				case "+", "*":
-					assert(op == nil)
-					op = ch
-				case "(":
-					processValue(eval())
-				case ")":
-//					print("EXITING eval on closing paren with result \(result!)")
-					return result!
-				default:
-					abort()
-				}
-			}
-//			print("EXITING eval with result \(result!)")
-			return result!
-		}
-
-		let chars = s.map { String($0) }
-		var charIndex = 0
-		return eval()
+		CompoundExpression.useOperatorPrecedence = false
+		return parseExpression(s).eval()
 	}
 
 	func evalForPart2(_ s: String) -> Int {
-		let expr = parseExpression(s)
-		expr.applyPrecedence()
-		return expr.eval()
+		CompoundExpression.useOperatorPrecedence = true
+		return parseExpression(s).eval()
 	}
 
 	override func solvePart1(inputLines: [String]) -> String {
+		CompoundExpression.useOperatorPrecedence = false
 		return String(inputLines.map({ evalForPart1($0) }).reduce(0, +))
 	}
 

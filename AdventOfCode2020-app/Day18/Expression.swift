@@ -3,56 +3,57 @@ import Foundation
 protocol Expression {
 	func eval() -> Int
 	func asString() -> String
-	func applyPrecedence()
 }
-
-extension Expression {
-	func applyPrecedence() {}
-}
-
-typealias Operation = String
 
 class NumberExpression: Expression {
 	let value: Int
-
-	init(_ value: Int) {
-		self.value = value
-	}
+	init(_ value: Int) { self.value = value }
 
 	// MARK: - Expression protocol
 
-	func eval() -> Int {
-		return value
-	}
-
-	func asString() -> String {
-		return String(value)
-	}
+	func eval() -> Int { return value }
+	func asString() -> String { return String(value) }
 }
 
 class CompoundExpression: Expression {
-	var parts = [(op: Operation, operand: Expression)]()
+	static var useOperatorPrecedence = false
 
-	init(initialSubexpression: Expression) {
-		self.parts = [("<ignore>", initialSubexpression)]
+	var operations = [(op: String, term: Expression)]()
+
+	init(initialTerm: Expression) {
+		self.operations = [("<ignore>", initialTerm)]
 	}
 
-	func add(op: String, operand: Expression) {
+	func add(op: String, term: Expression) {
 		assert(["+", "*"].contains(op))
-		parts.append((op, operand))
+		if CompoundExpression.useOperatorPrecedence {
+			// In this puzzle, unlike in real math, it's "+" that takes precedence rather
+			// than "*".  When we see a term being added, instead of appending the
+			// addition to our list of operations we combine the term with the previous
+			// term inside a PlusExpression, to force the addition to take precedence when
+			// we evaluate the expression.
+			if op == "+" {
+				let lastIndex = operations.count - 1
+				operations[lastIndex].term = PlusExpression(operations[lastIndex].term, term)
+			} else {
+				operations.append((op, term))
+			}
+		} else {
+			operations.append((op, term))
+		}
 	}
 
 	// MARK: - Expression protocol
 
 	func eval() -> Int {
-		var result = parts[0].operand.eval()  // operation of first part is ignored
-		for i in 1..<parts.count {
-			let (op, operand) = parts[i]
+		var result = operations[0].term.eval()  // parts[0].op is ignored.
+		for i in 1..<operations.count {
+			let (op, term) = operations[i]
 			switch op {
 			case "+":
-				result += operand.eval()
+				result += term.eval()
 			case "*":
-				result *= operand.eval()
+				result *= term.eval()
 			default:
 				abort()
 			}
@@ -61,99 +62,101 @@ class CompoundExpression: Expression {
 	}
 
 	func asString() -> String {
-		var result = parts[0].operand.asString()
+		var result = operations[0].term.asString()
 
-		for i in 1..<parts.count {
-			let (op, operand) = parts[i]
-			result = "\(result) \(op) \(operand.asString())"
+		for i in 1..<operations.count {
+			let (op, term) = operations[i]
+			result = "\(result) \(op) \(term.asString())"
 		}
 
-		if parts.isEmpty {
+		if operations.isEmpty {
 			return result
 		} else {
 			return "(\(result))"
 		}
 	}
-
-	// MARK: - Private stuff
-
-	internal func applyPrecedence() {
-		for (_, operand) in parts { operand.applyPrecedence() }
-
-		var newParts = [parts[0]]
-		for i in 1..<parts.count {
-			let (op, operand) = parts[i]
-			if op == "+" {
-				newParts[newParts.count - 1].operand = PlusExpression(newParts[newParts.count - 1].operand, operand)
-			} else if op == "*" {
-				newParts.append((op, operand))
-			} else {
-				abort()
-			}
-		}
-
-		parts = newParts
-	}
 }
 
 class PlusExpression: Expression {
-	var arg1: Expression
-	var arg2: Expression
+	var term1: Expression
+	var term2: Expression
 
-	init(_ arg1: Expression, _ arg2: Expression) {
-		self.arg1 = arg1
-		self.arg2 = arg2
+	init(_ term1: Expression, _ term2: Expression) {
+		self.term1 = term1
+		self.term2 = term2
 	}
 
 	// MARK: - Expression protocol
 
-	func eval() -> Int {
-		return arg1.eval() + arg2.eval()
-	}
-
-	func asString() -> String {
-		return "(\(arg1.asString()) + \(arg2.asString()))"
-	}
+	func eval() -> Int { return term1.eval() + term2.eval() }
+	func asString() -> String { return "(\(term1.asString()) + \(term2.asString()))" }
 }
 
-func parseExpression(_ s: String) -> CompoundExpression {
-	func eval() -> CompoundExpression {
-		func processExpression(_ expr: Expression) {
-			if result == nil {
-				result = CompoundExpression(initialSubexpression: expr)
-			} else {
-				result!.add(op: op!, operand: expr)
-				op = nil
-			}
+/// Parses an expression that is assumed to be well-formed.
+///
+/// - expr = term (op term)*
+/// - term = number | \(expr\)
+/// - number = \1...\9
+/// - op = \+|\*
+func parseExpression(_ s: String) -> Expression {
+	class Tokens {
+		let tokens: [String]
+		var tokenIndex = 0
+		var hasMore: Bool { return tokenIndex < tokens.count }
+
+		init(_ s: String) {
+			// Since the input only has single-digit numbers, each character is a token
+			// and we can ignore spaces.
+			self.tokens = s.map { String($0) }.filter { $0 != " " }
 		}
 
-		var op: String?
-		var result: CompoundExpression?
-		while charIndex < chars.count {
-			let ch = chars[charIndex]
-			charIndex += 1
-
-			switch ch {
-			case " ":
-				// We can ignore spaces.
-				()
-			case "1"..."9":
-				processExpression(NumberExpression(Int(ch)!))
-			case "+", "*":
-				assert(op == nil)
-				op = ch
-			case "(":
-				processExpression(eval())
-			case ")":
-				return result!
-			default:
-				abort()
-			}
+		func next() -> String {
+			let token = tokens[tokenIndex]
+			tokenIndex += 1
+			return token
 		}
-		return result!
 	}
 
-	let chars = s.map { String($0) }
-	var charIndex = 0
-	return eval()
+	/// Assumes we're looking at the beginning of the first term of an expression.
+	func parseExpression() -> Expression {
+		// Tentatively assume the expression we're looking at has multiple terms.  Parse
+		// the first of those terms.
+		let result = CompoundExpression(initialTerm: parseTerm())
+
+		// Parse `op term` zero or more times until we reach either a closing parenthesis
+		// or the end of input.
+		while tokens.hasMore {
+			let token = tokens.next()
+
+			// `token` is either an operator or the term's closing parenthesis.
+			if token == ")" {
+				break
+			}
+			result.add(op: token, term: parseTerm())
+		}
+
+		// If `result` only contains a single term then return that term.
+		if result.operations.count == 1 {
+			return result.operations[0].term
+		} else {
+			return result
+		}
+	}
+
+	/// Assumes we're looking at the beginning of a term, i.e. either a digit or an
+	/// opening parenthesis.
+	func parseTerm() -> Expression {
+		let token = tokens.next()
+		switch token {
+		case "1"..."9":
+			return NumberExpression(Int(token)!)
+		case "(":
+			return parseExpression()
+		default:
+			abort()
+		}
+	}
+
+	let tokens = Tokens(s)
+	return parseExpression()
 }
