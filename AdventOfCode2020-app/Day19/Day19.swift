@@ -15,8 +15,8 @@ class Day19: DayNN {
 		self.part2Tests = [
 			// Note one of these tests uses Part 1.  The puzzle description for Part 2
 			// points out the result we get if we use the Part 1 algorithm.
-//			testPart1(fileNumber: 2, expectedResult: "3"),
-//			testPart2(fileNumber: 2, expectedResult: "12"),
+			testPart1(fileNumber: 2, expectedResult: "3"),
+			testPart2(fileNumber: 2, expectedResult: "12"),
 		]
 	}
 
@@ -67,12 +67,17 @@ class Day19: DayNN {
 		}
 	}
 
-	struct RuleSet {
-		let rules: [Rule]
-
+	class RuleSet {
+		var rules: [Int: Rule]
 
 		init(_ ruleStrings: [String]) {
-			self.rules = ruleStrings.map { Rule($0) }.sorted(by: { $0.number < $1.number })
+			var lookup = [Int: Rule]()
+			for s in ruleStrings {
+				let rule = Rule(s)
+				lookup[rule.number] = rule
+			}
+
+			self.rules = lookup
 		}
 
 		func matches(_ s: String) -> Bool {
@@ -94,7 +99,7 @@ class Day19: DayNN {
 				for ruleNum in prod.numbers {
 					var ruleJumps = Set<Int>()
 					for start in result {
-						ruleJumps.formUnion(jumpsMatchingRule(rules[ruleNum], startingAt: start))
+						ruleJumps.formUnion(jumpsMatchingRule(rules[ruleNum]!, startingAt: start))
 					}
 					result = ruleJumps
 				}
@@ -112,7 +117,7 @@ class Day19: DayNN {
 			}
 
 			let chars = s.map { String($0) }
-			let jumps = jumpsMatchingRule(rules[0], startingAt: 0)
+			let jumps = jumpsMatchingRule(rules[0]!, startingAt: 0)
 			return jumps.contains(chars.count)
 		}
 	}
@@ -123,6 +128,10 @@ class Day19: DayNN {
 		let messages = rulesAndMessages[1]
 
 		let ruleSet = RuleSet(ruleStrings)
+		if tweakForPart2 {
+			ruleSet.rules[8] = Rule("8: 42 | 42 8")
+			ruleSet.rules[11] = Rule("11: 42 31 | 42 11 31")
+		}
 		return messages.map { ruleSet.matches($0) }
 	}
 
@@ -131,7 +140,7 @@ class Day19: DayNN {
 	}
 
 	override func solvePart2(inputLines: [String]) -> String {
-		return "xxx"
+		return String(matchingResults(inputLines, tweakForPart2: true).filter { $0 }.count)
 	}
 }
 
