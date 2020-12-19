@@ -34,7 +34,7 @@ class CompoundExpression: Expression {
 	var parts = [(op: Operation, operand: Expression)]()
 
 	init(initialSubexpression: Expression) {
-		self.parts = [("*", initialSubexpression)]
+		self.parts = [("<ignore>", initialSubexpression)]
 	}
 
 	func add(op: String, operand: Expression) {

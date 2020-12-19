@@ -2,7 +2,7 @@ import Foundation
 
 class Day18: DayNN {
 	init() {
-		super.init("PUT_DESCRIPTION_HERE")
+		super.init("Operation Order")
 		self.part1Tests = [
 			test(input: "1 + 2 * 3 + 4 * 5 + 6",
 				 function: { return String(self.evalForPart1($0)) },
