@@ -3,7 +3,7 @@ import Foundation
 /// A non-empty rectangular collection of 1-character strings -- basically syntactic sugar
 /// around a 2-dimensional array.
 class CharGrid: Equatable {
-	private var rows: [[String]]
+	private(set) var rows: [[String]]
 	var width: Int { return rows[0].count }
 	var height: Int { return rows.count }
 

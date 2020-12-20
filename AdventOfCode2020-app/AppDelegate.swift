@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  AdventOfCode2020-app
-//
-//  Created by Andy Lee on 11/30/20.
-//
-
 import Cocoa
 
 @main
@@ -19,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		for d in [Day01(), Day02(), Day03(), Day04(), Day05(), Day06()] {
 //			doOneDay(d)
 //		}
-		doOneDay(Day19())
+		doOneDay(Day20())
 		NSApplication.shared.terminate(nil)
 	}
 
@@ -50,16 +43,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		print()
 
 		print("--- Part 1 ---")
-		guard runTests(day.part1Tests) else { return }
+//		guard runTests(day.part1Tests) else { return }
 		print("Part 1 final answer is... ", terminator: "")
 		print(day.solvePart1())
 		print()
 
-		print("--- Part 2 ---")
-		guard runTests(day.part2Tests) else { return }
-		print("Part 2 final answer is... ", terminator: "")
-		print(day.solvePart2())
-		print()
+//		print("--- Part 2 ---")
+//		guard runTests(day.part2Tests) else { return }
+//		print("Part 2 final answer is... ", terminator: "")
+//		print(day.solvePart2())
+//		print()
 	}
 }
 

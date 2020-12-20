@@ -70,6 +70,12 @@
 		7354BD04258D9E1A0094CD0C /* Day19_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7354BCFE258D9E1A0094CD0C /* Day19_TestInput01.txt */; };
 		7354BD05258D9E1A0094CD0C /* Day19.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354BCFF258D9E1A0094CD0C /* Day19.swift */; };
 		735A63DB258DE76D00A34F3C /* Day19_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 735A63DA258DE76D00A34F3C /* Day19_TestInput02.txt */; };
+		735A63E6258E00B400A34F3C /* Day20_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 735A63E0258E00B400A34F3C /* Day20_TestInput01.txt */; };
+		735A63E7258E00B400A34F3C /* Day20_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 735A63E1258E00B400A34F3C /* Day20_Input.txt */; };
+		735A63E8258E00B400A34F3C /* Day20_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 735A63E2258E00B400A34F3C /* Day20_Discussion.md */; };
+		735A63E9258E00B400A34F3C /* Day20_Part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 735A63E3258E00B400A34F3C /* Day20_Part2.txt */; };
+		735A63EA258E00B400A34F3C /* Day20_Part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 735A63E4258E00B400A34F3C /* Day20_Part1.txt */; };
+		735A63EB258E00B400A34F3C /* Day20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A63E5258E00B400A34F3C /* Day20.swift */; };
 		7368FE982576B9A300FAFAA3 /* topSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368FE972576B9A300FAFAA3 /* topSort.swift */; };
 		7368FE9E2576BAA500FAFAA3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368FE9D2576BAA500FAFAA3 /* Node.swift */; };
 		7368FEA62576BAD500FAFAA3 /* NodeLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368FEA52576BAD500FAFAA3 /* NodeLookup.swift */; };
@@ -236,6 +242,12 @@
 		7354BCFE258D9E1A0094CD0C /* Day19_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day19_TestInput01.txt; sourceTree = "<group>"; };
 		7354BCFF258D9E1A0094CD0C /* Day19.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day19.swift; sourceTree = "<group>"; };
 		735A63DA258DE76D00A34F3C /* Day19_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day19_TestInput02.txt; sourceTree = "<group>"; };
+		735A63E0258E00B400A34F3C /* Day20_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day20_TestInput01.txt; sourceTree = "<group>"; };
+		735A63E1258E00B400A34F3C /* Day20_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day20_Input.txt; sourceTree = "<group>"; };
+		735A63E2258E00B400A34F3C /* Day20_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day20_Discussion.md; sourceTree = "<group>"; };
+		735A63E3258E00B400A34F3C /* Day20_Part2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day20_Part2.txt; sourceTree = "<group>"; };
+		735A63E4258E00B400A34F3C /* Day20_Part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day20_Part1.txt; sourceTree = "<group>"; };
+		735A63E5258E00B400A34F3C /* Day20.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day20.swift; sourceTree = "<group>"; };
 		7368FE952576415F00FAFAA3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7368FE972576B9A300FAFAA3 /* topSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topSort.swift; sourceTree = "<group>"; };
 		7368FE9C2576B9B700FAFAA3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -508,6 +520,19 @@
 			path = Day19;
 			sourceTree = "<group>";
 		};
+		735A63DF258E00B400A34F3C /* Day20 */ = {
+			isa = PBXGroup;
+			children = (
+				735A63E2258E00B400A34F3C /* Day20_Discussion.md */,
+				735A63E1258E00B400A34F3C /* Day20_Input.txt */,
+				735A63E4258E00B400A34F3C /* Day20_Part1.txt */,
+				735A63E3258E00B400A34F3C /* Day20_Part2.txt */,
+				735A63E0258E00B400A34F3C /* Day20_TestInput01.txt */,
+				735A63E5258E00B400A34F3C /* Day20.swift */,
+			);
+			path = Day20;
+			sourceTree = "<group>";
+		};
 		7368FE962576B9A300FAFAA3 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,6 +591,7 @@
 				732641152589FDF20096D50E /* Day17 */,
 				7326416B258B45580096D50E /* Day18 */,
 				7354BCF9258D9E1A0094CD0C /* Day19 */,
+				735A63DF258E00B400A34F3C /* Day20 */,
 				7373BC332575CC0500622514 /* AppDelegate.swift */,
 				7373BC352575CC0700622514 /* Assets.xcassets */,
 				7373BC372575CC0700622514 /* MainMenu.xib */,
@@ -848,6 +874,7 @@
 				7326411F2589FDF20096D50E /* Day17_TestInput01.txt in Resources */,
 				732641202589FDF20096D50E /* Day17_Part2.txt in Resources */,
 				7326411E2589FDF20096D50E /* Day17_Input.txt in Resources */,
+				735A63E8258E00B400A34F3C /* Day20_Discussion.md in Resources */,
 				732641092588B9430096D50E /* Day16_Input.txt in Resources */,
 				732640F025881C300096D50E /* Day15_Discussion.md in Resources */,
 				738A2B62257C4C7900E662B9 /* Day06_Part2.txt in Resources */,
@@ -855,6 +882,7 @@
 				738A2B4C257B4BEC00E662B9 /* Day05_Part1.txt in Resources */,
 				738A2AE92577294100E662B9 /* Day02_TestInput01.txt in Resources */,
 				738A2AE82577294100E662B9 /* Day02_Part1.txt in Resources */,
+				735A63EA258E00B400A34F3C /* Day20_Part1.txt in Resources */,
 				731815E92583EDE7008CAC8F /* Day12_Part2.txt in Resources */,
 				738D9C2C257E1DE10057511A /* Day08_Discussion.md in Resources */,
 				738A2B282579D5E900E662B9 /* Day04_Part1.txt in Resources */,
@@ -866,6 +894,7 @@
 				738D9C42257FFAC40057511A /* Day09_Part1.txt in Resources */,
 				732641082588B9430096D50E /* Day16_Part1.txt in Resources */,
 				732640EF25881C300096D50E /* Day15_Part1.txt in Resources */,
+				735A63E6258E00B400A34F3C /* Day20_TestInput01.txt in Resources */,
 				731816022584A0D2008CAC8F /* Day13_Discussion.md in Resources */,
 				73264177258B45580096D50E /* Day18_Discussion.md in Resources */,
 				738D9C612580B8AA0057511A /* Day10_Part2.txt in Resources */,
@@ -887,6 +916,7 @@
 				73436172257625D700FA8D7F /* Day01_Discussion.md in Resources */,
 				738D9C632580B8AA0057511A /* Day10_Input.txt in Resources */,
 				7354BD02258D9E1A0094CD0C /* Day19_Part2.txt in Resources */,
+				735A63E9258E00B400A34F3C /* Day20_Part2.txt in Resources */,
 				731816202585FE08008CAC8F /* Day14_TestInput01.txt in Resources */,
 				738A2B4B257B4BEC00E662B9 /* Day05_Part2.txt in Resources */,
 				738D9C862582225F0057511A /* Day11_Part2.txt in Resources */,
@@ -935,6 +965,7 @@
 				731816012584A0D2008CAC8F /* Day13_Part2.txt in Resources */,
 				738D9C772581E5040057511A /* Day10_TestInput02.txt in Resources */,
 				7343614A25760D2A00FA8D7F /* Day01_Part2.txt in Resources */,
+				735A63E7258E00B400A34F3C /* Day20_Input.txt in Resources */,
 				738D9C0F257CEDF10057511A /* Day07_Discussion.md in Resources */,
 				738A2B37257A146000E662B9 /* Day04_TestInput03.txt in Resources */,
 				738D9C0D257CEDF10057511A /* Day07_Part2.txt in Resources */,
@@ -1002,6 +1033,7 @@
 				738C023D25763FFB007338D5 /* Util.swift in Sources */,
 				731816002584A0D2008CAC8F /* Day13.swift in Sources */,
 				738A2B57257B656900E662B9 /* DayNN+Tests.swift in Sources */,
+				735A63EB258E00B400A34F3C /* Day20.swift in Sources */,
 				732640CB2588018B0096D50E /* Heap.swift in Sources */,
 				738A2B66257C4C7900E662B9 /* Day06.swift in Sources */,
 				738D9C27257E1DE10057511A /* Day08.swift in Sources */,
