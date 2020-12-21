@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		for d in [Day01(), Day02(), Day03(), Day04(), Day05(), Day06()] {
 //			doOneDay(d)
 //		}
-		doOneDay(Day20())
+		doOneDay(Day21())
 		NSApplication.shared.terminate(nil)
 	}
 
@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		print("Part 1 final answer is... ", terminator: "")
 //		print(day.solvePart1())
 //		print()
-
+//
 		print("--- Part 2 ---")
 		guard runTests(day.part2Tests) else { return }
 		print("Part 2 final answer is... ", terminator: "")
