@@ -70,7 +70,7 @@ class Menu {
 	/// mapping if there exists a menu item that mentions the allergen but **not** the
 	/// ingredient.  We remove all such mappings from the lookup.
 	private func doFirstReductionOfSuspects() {
-		func canRuleOut(ingredient: String, allergen: String) -> Bool {
+		func canRuleOut(ingredient: String, asHavingAllergen allergen: String) -> Bool {
 			for menuItem in menuItems {
 				if menuItem.allergens.contains(allergen) && !menuItem.ingredients.contains(ingredient) {
 					return true
@@ -79,18 +79,11 @@ class Menu {
 			return false
 		}
 
-		while true {
-			var didReduceSuspects = false
-			for ingr in allIngredients {
-				for allergen in suspects.suspectedAllergens(ingr) {
-					if canRuleOut(ingredient: ingr, allergen: allergen) {
-						suspects.exonerate(ingredient: ingr, ofHavingAllergen: allergen)
-						didReduceSuspects = true
-					}
+		for ingr in allIngredients {
+			for allergen in suspects.suspectedAllergens(ingr) {
+				if canRuleOut(ingredient: ingr, asHavingAllergen: allergen) {
+					suspects.exonerate(ingredient: ingr, ofHavingAllergen: allergen)
 				}
-			}
-			if !didReduceSuspects {
-				break
 			}
 		}
 	}
