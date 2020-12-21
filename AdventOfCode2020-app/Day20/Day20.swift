@@ -7,7 +7,7 @@ class Day20: DayNN {
 			testPart1(fileNumber: 1, expectedResult: "20899048083289"),
 		]
 		self.part2Tests = [
-			testPart2(fileNumber: 1, expectedResult: "xxx"),
+			testPart2(fileNumber: 1, expectedResult: "273"),
 		]
 	}
 
@@ -53,9 +53,8 @@ class Day20: DayNN {
 
 		var description: String { return String(number) }
 
-
 		let number: Int
-		private let grid: CharGrid
+		let grid: CharGrid
 		var possibleEdgeNumbers: [Int] {
 			return [
 				grid.rows.first!,
@@ -111,6 +110,23 @@ class Day20: DayNN {
 			abort()
 		}
 
+		func rowStringsWithoutEdges() -> [String] {
+			var rowsOfChars = grid.rows
+
+			// Remove the top and bottom edges.
+			rowsOfChars.removeFirst()
+			rowsOfChars.removeLast()
+
+			// Remove the left and right edges.
+			for rowIndex in 0..<rowsOfChars.count {
+				rowsOfChars[rowIndex].removeFirst()
+				rowsOfChars[rowIndex].removeLast()
+			}
+
+			// Convert the now-reduced rows to strings
+			return rowsOfChars.map { $0.joined() }
+		}
+
 		private func edgeToInt(_ chars: [String]) -> Int {
 			var result = 0
 			for ch in chars {
@@ -151,8 +167,7 @@ class Day20: DayNN {
 		return String(product)
 	}
 
-	override func solvePart2(inputLines: [String]) -> String {
-
+	func assembledTiles(_ inputLines: [String]) -> [[Tile]] {
 		let groups = groupedLines(inputLines)
 		let tiles = groups.map { Tile($0) }
 
@@ -227,11 +242,112 @@ class Day20: DayNN {
 			nextTile.transformUntil { nextTile.topEdgeNumber == bottomEdge }
 			gridOfTiles.append([nextTile])
 		}
-		print()
-		print(gridOfTiles)
+
+		return gridOfTiles
+	}
+
+	func charGridFromTiles(_ gridOfTiles: [[Tile]]) -> CharGrid {
+		var linesForResult = [String]()
+
+		for rowOfTiles in gridOfTiles {
+			let stringsWithoutEdge = rowOfTiles.map { $0.rowStringsWithoutEdges() }
+			for rowIndexWithinTile in 0..<stringsWithoutEdge[0].count {
+				let combinedRowOfChars = stringsWithoutEdge.reduce("", {
+					$0 + $1[rowIndexWithinTile]
+				})
+				linesForResult.append(combinedRowOfChars)
+			}
+		}
+
+		return CharGrid(inputLines: linesForResult)
+	}
+
+	/// Returns true if at least one sea monster was found.  It's assumed there is only
+	/// one orientation where this will return true.
+	func markSeaMonsters(_ grid: CharGrid) -> Bool {
+		func monsterOffsets(_ s: String) -> [Int] {
+			let chars = s.map { String($0) }
+			return (0..<chars.count).filter { chars[$0] == "#" }
+		}
+
+		func gridHasMonsterAt(_ x: Int, _ y: Int) -> Bool {
+			for dy in 0..<offsets.count {
+				for dx in offsets[dy] {
+					if grid[x + dx, y + dy] != "#" {
+						return false
+					}
+				}
+			}
+			return true
+		}
+
+		/// I'm assuming monsters don't overlap.  We'll see.
+		func markMonsterAt(_ x: Int, _ y: Int) {
+			for dy in 0..<offsets.count {
+				for dx in offsets[dy] {
+					grid[x + dx, y + dy] = "O"
+				}
+			}
+		}
+
+		let patternChars = ["                  # ",
+							"#    ##    ##    ###",
+							" #  #  #  #  #  #   "]
+		let offsets = patternChars.map { monsterOffsets($0) }
+		var foundMonster = false
+		for y in 0...(grid.height - patternChars.count) {
+			for x in 0...(grid.width - patternChars[0].count) {
+				if gridHasMonsterAt(x, y) {
+					markMonsterAt(x, y)
+					foundMonster = true
+				}
+			}
+		}
+
+		return foundMonster
+	}
+
+	// Transform the grid until sea monsters are found.
+	// 
+	func findSeaMonsters(_ grid: CharGrid) {
+		// Rotate the grid and see if we can satisfy the condition.
+		for _ in 0..<4 {
+			grid.rotateCounterclockwise()
+			if markSeaMonsters(grid) {
+				return
+			}
+		}
+
+		// Rotating the original grid didn't work.  Flip the grid and try again.
+		grid.flipLeftToRight()
+		for _ in 0..<4 {
+			grid.rotateCounterclockwise()
+			if markSeaMonsters(grid) {
+				return
+			}
+		}
+
+		// The input data is supposed to be such that we never get here.  If we do,
+		// it's a bug.
+		abort()
+	}
 
 
-		return "xxx"
+	override func solvePart2(inputLines: [String]) -> String {
+		let gridOfTiles = assembledTiles(inputLines)
+		let imageGrid = charGridFromTiles(gridOfTiles)
+		findSeaMonsters(imageGrid)
+		//imageGrid.printGrid()
+
+		var numHashes = 0
+		for y in 0..<imageGrid.height {
+			for x in 0..<imageGrid.width {
+				if imageGrid[x, y] == "#" {
+					numHashes += 1
+				}
+			}
+		}
+		return String(numHashes)
 	}
 }
 

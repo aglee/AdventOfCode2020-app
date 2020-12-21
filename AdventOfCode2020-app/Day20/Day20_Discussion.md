@@ -49,6 +49,8 @@ UPDATE: I have this working.
 
 ## Finding the sea monsters
 
-Wondering if brute force search will be fast enough.
+First step is to remove the edges of the tiles and construct the image. (UPDATE: I have this working, I think.)  Then search the image for sea monsters, orienting the image as necessary for a non-zero number of sea monsters to be found.  I'm going to assume brute force search will be fast enough.
+
+I'm thinking I'll flip-and-rotate the image, but could also flip-and-rotate the sea monster pattern.
 
 
