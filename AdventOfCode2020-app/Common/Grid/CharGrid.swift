@@ -43,6 +43,20 @@ class CharGrid: Equatable {
 		return isInBounds(point.x, point.y)
 	}
 
+	func flipLeftToRight() {
+		rows = rows.map { $0.reversed() }
+	}
+
+	/// Rotates by 90 degrees.
+	func rotateCounterclockwise() {
+		// Make a list of the grid's columns.  Rotating means those columns will become
+		// rows.  We reverse the list of columns because under counterclockwise rotation,
+		// the first column will become the last row.
+		rows = (0..<width).map { x in  // For x in 0..<width.
+			rows.map { $0[x] }  // Return the x'th column.
+		}.reversed()  // Reverse the resulting list of columns.
+	}
+
 	func printGrid() {
 		for row in rows {
 			print(row.joined())
