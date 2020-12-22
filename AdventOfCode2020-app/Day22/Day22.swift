@@ -78,10 +78,10 @@ class Day22: DayNN {
 
 		func playGame() -> Int {
 			let winner = _playGameRecursively()
-			DEBUGPRINT("")
-			DEBUGPRINT("== Post-game results ==")
-			DEBUGPRINT("Player 1's deck: \(hand.deck1.map { String($0) }.joined(separator: ", "))")
-			DEBUGPRINT("Player 2's deck: \(hand.deck2.map { String($0) }.joined(separator: ", "))")
+			//DEBUGPRINT("")
+			//DEBUGPRINT("== Post-game results ==")
+			//DEBUGPRINT("Player 1's deck: \(hand.deck1.map { String($0) }.joined(separator: ", "))")
+			//DEBUGPRINT("Player 2's deck: \(hand.deck2.map { String($0) }.joined(separator: ", "))")
 			if winner == 1 {
 				return score(hand.deck1)
 			} else if winner == 2 {
@@ -91,7 +91,7 @@ class Day22: DayNN {
 		}
 
 		private func _playGameRecursively() -> Int {
-			DEBUGPRINT("=== Game \(gameNumber) ===")
+			//DEBUGPRINT("=== Game \(gameNumber) ===")
 
 			var pastHands = Set<Hand>()
 			var roundNumber = 1
@@ -114,28 +114,28 @@ class Day22: DayNN {
 				pastHands.insert(hand)
 
 				// Play a round.
-				DEBUGPRINT("")
-				DEBUGPRINT("-- Round \(roundNumber) (Game \(gameNumber)) --")
-				DEBUGPRINT("Player 1's deck: \(hand.deck1.map { String($0) }.joined(separator: ", "))")
-				DEBUGPRINT("Player 2's deck: \(hand.deck2.map { String($0) }.joined(separator: ", "))")
-				DEBUGPRINT("Player 1 plays: \(hand.deck1[0])")
-				DEBUGPRINT("Player 2 plays: \(hand.deck2[0])")
+				//DEBUGPRINT("")
+				//DEBUGPRINT("-- Round \(roundNumber) (Game \(gameNumber)) --")
+				//DEBUGPRINT("Player 1's deck: \(hand.deck1.map { String($0) }.joined(separator: ", "))")
+				//DEBUGPRINT("Player 2's deck: \(hand.deck2.map { String($0) }.joined(separator: ", "))")
+				//DEBUGPRINT("Player 1 plays: \(hand.deck1[0])")
+				//DEBUGPRINT("Player 2 plays: \(hand.deck2[0])")
 				var winnerOfRound: Int
 				let (card1, card2) = hand.pop()
 				if card1 > hand.deck1.count || card2 > hand.deck2.count {
 					winnerOfRound = (card1 > card2 ? 1 : 2)
 				} else {
 					// If we got here, we need to recurse.
-					DEBUGPRINT("Playing a sub-game to determine the winner...")
-					DEBUGPRINT("")
+					//DEBUGPRINT("Playing a sub-game to determine the winner...")
+					//DEBUGPRINT("")
 					let subgame = Game(Array(hand.deck1[0..<card1]),
 									   Array(hand.deck2[0..<card2]))
 					winnerOfRound = subgame._playGameRecursively()
-					DEBUGPRINT("")
-					DEBUGPRINT("...anyway, back to game \(gameNumber).")
+					//DEBUGPRINT("")
+					//DEBUGPRINT("...anyway, back to game \(gameNumber).")
 				}
 
-				DEBUGPRINT("Player \(winnerOfRound) wins round \(roundNumber) of game \(gameNumber)!")
+				//DEBUGPRINT("Player \(winnerOfRound) wins round \(roundNumber) of game \(gameNumber)!")
 				if winnerOfRound == 1 {
 					hand.deck1.append(card1)
 					hand.deck1.append(card2)
@@ -147,7 +147,7 @@ class Day22: DayNN {
 				roundNumber += 1
 			}
 
-			DEBUGPRINT("The winner of game \(gameNumber) is player \(winnerOfGame)!")
+			//DEBUGPRINT("The winner of game \(gameNumber) is player \(winnerOfGame)!")
 			return winnerOfGame
 		}
 	}
