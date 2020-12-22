@@ -15,7 +15,7 @@ Technically I don't *have* to build a UI.  I could do all the work in `applicati
 - I've been copy-pasting the puzzle descriptions as plain text and adding a bit of Markdown.  The result looks fine but doesn't capture all the highlighting and links.  Would it be worth grabbing the HTML and CSS instead?  Or maybe pasting into .rtf files rather than plain text?  I'd only grab the problem descriptions, not the surrounding stuff like ads and site navigation.
 - Should I put the correct final answers I got somewhere, so when I run the code later I can have the satisfaction of seeing it still works on the real data and not just the test data?  I haven't been wanting to, out of perhaps a misguided concern about spoilers/cheating.  Perhaps it's even less of a concern this year, since I'm not posting my solutions publicly right away.
 - I'd like to rename all the "DayXX_Discussion.md" files to "README.md" so they are detected and displayed on GitHub.  If I still want to add them as resources to the eventual (?) Cocoa app, I'll probably have to add a build phase with a script that copies them over using distinct names.
-
+- Move rotate/flip/until methods from Day 20 to CharGrid.
 
 
 
