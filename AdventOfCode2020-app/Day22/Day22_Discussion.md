@@ -6,3 +6,6 @@ For Part 2 my test gave the right final answer, so I should have run the real in
 
 Part 2 took 14 seconds with `DEBUGPRINT_ENABLED` turned on, 6 seconds with it off.  I guess it was time-consuming to construct the strings I was passing to `DEBUGPRINT()` -- concatenating array elements and whatnot.
 
+UPDATE: Since committing my initial solution I've removed the DEBUGPRINT statements and done other cleanup.
+
+
