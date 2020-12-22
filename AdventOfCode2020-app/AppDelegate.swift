@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		for d in [Day01(), Day02(), Day03(), Day04(), Day05(), Day06()] {
 //			doOneDay(d)
 //		}
-		doOneDay(Day21())
+		doOneDay(Day22())
 		NSApplication.shared.terminate(nil)
 	}
 

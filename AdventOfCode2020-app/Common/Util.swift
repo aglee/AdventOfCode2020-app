@@ -4,10 +4,11 @@ func ERRORPRINT(_ s: String) {
 	print("ERROR: \(s)")
 }
 
-var DEBUGPRINT_ENABLED = true
+var DEBUGPRINT_ENABLED = false
 func DEBUGPRINT(_ s: String) {
 	if DEBUGPRINT_ENABLED {
-		print("DEBUG: \(s)")
+//		print("DEBUG: \(s)")
+		print(s)
 	}
 }
 
