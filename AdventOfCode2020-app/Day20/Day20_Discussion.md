@@ -70,7 +70,7 @@ My first thought had been to try to figure out what sequence of flips and rotati
 So now I could tell a tile to orient itself so a given edge number was on a given edge.  For example, given the **right-side edge number** of a tile, I could first find the tile that **must** be its right-hand neighbor, because only one other tile would have that as a possible edge number.  Then I could orient that second tile like this:
 
 ```objective-c
-nextTile.transformUntil { nextTile.leftEdgeNumber == rightEdge }
+nextTile.flipAndRotateUntil { nextTile.leftEdgeNumber == rightEdge }
 ```
 
 And I could look at what *that* tile's right edge number is to find *its* right-hand neighbor, and so forth until all tiles are arranged in a grid making up the image.

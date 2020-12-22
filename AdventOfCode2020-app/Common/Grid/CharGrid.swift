@@ -47,6 +47,10 @@ class CharGrid: Equatable {
 		rows = rows.map { $0.reversed() }
 	}
 
+	func flipTopToBottom() {
+		rows = rows.reversed()
+	}
+
 	/// Rotates by 90 degrees.
 	func rotateCounterclockwise() {
 		// Make a list of the grid's columns.  Rotating means those columns will become

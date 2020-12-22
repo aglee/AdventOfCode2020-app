@@ -59,6 +59,9 @@
 		732854472591DF96008B285A /* Day23_Part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 732854412591DF96008B285A /* Day23_Part2.txt */; };
 		732854482591DF96008B285A /* Day23_Part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 732854422591DF96008B285A /* Day23_Part1.txt */; };
 		732854492591DF96008B285A /* Day23_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 732854432591DF96008B285A /* Day23_Input.txt */; };
+		7328545925929CFB008B285A /* TileSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7328545825929CFB008B285A /* TileSet.swift */; };
+		7328545E2592AE3D008B285A /* TileSet+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7328545D2592AE3D008B285A /* TileSet+Image.swift */; };
+		732854632592AF0B008B285A /* CharGrid+SeaMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732854622592AF0B008B285A /* CharGrid+SeaMonsters.swift */; };
 		7343611E2575E81B00FA8D7F /* Day01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343611D2575E81B00FA8D7F /* Day01.swift */; };
 		734361302575E94E00FA8D7F /* IntcodeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343612D2575E94E00FA8D7F /* IntcodeVM.swift */; };
 		734361312575E94E00FA8D7F /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343612E2575E94E00FA8D7F /* Grid.swift */; };
@@ -249,6 +252,9 @@
 		732854412591DF96008B285A /* Day23_Part2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day23_Part2.txt; sourceTree = "<group>"; };
 		732854422591DF96008B285A /* Day23_Part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day23_Part1.txt; sourceTree = "<group>"; };
 		732854432591DF96008B285A /* Day23_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day23_Input.txt; sourceTree = "<group>"; };
+		7328545825929CFB008B285A /* TileSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileSet.swift; sourceTree = "<group>"; };
+		7328545D2592AE3D008B285A /* TileSet+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TileSet+Image.swift"; sourceTree = "<group>"; };
+		732854622592AF0B008B285A /* CharGrid+SeaMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharGrid+SeaMonsters.swift"; sourceTree = "<group>"; };
 		7343611D2575E81B00FA8D7F /* Day01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day01.swift; sourceTree = "<group>"; };
 		7343612D2575E94E00FA8D7F /* IntcodeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntcodeVM.swift; sourceTree = "<group>"; };
 		7343612E2575E94E00FA8D7F /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
@@ -580,6 +586,9 @@
 				735A63E3258E00B400A34F3C /* Day20_Part2.txt */,
 				735A63E0258E00B400A34F3C /* Day20_TestInput01.txt */,
 				735A63E5258E00B400A34F3C /* Day20.swift */,
+				7328545825929CFB008B285A /* TileSet.swift */,
+				7328545D2592AE3D008B285A /* TileSet+Image.swift */,
+				732854622592AF0B008B285A /* CharGrid+SeaMonsters.swift */,
 			);
 			path = Day20;
 			sourceTree = "<group>";
@@ -1099,6 +1108,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7328545925929CFB008B285A /* TileSet.swift in Sources */,
 				738D9C11257CEDF10057511A /* Day07.swift in Sources */,
 				7343618A25762EE300FA8D7F /* GridElement.swift in Sources */,
 				732641042588B9430096D50E /* Day16.swift in Sources */,
@@ -1117,10 +1127,12 @@
 				7368FE9E2576BAA500FAFAA3 /* Node.swift in Sources */,
 				731815ED2583EDE7008CAC8F /* Day12.swift in Sources */,
 				73264175258B45580096D50E /* Day18.swift in Sources */,
+				7328545E2592AE3D008B285A /* TileSet+Image.swift in Sources */,
 				7373BC802575D0E100622514 /* DayNN.swift in Sources */,
 				738A2B022577A77900E662B9 /* Day03.swift in Sources */,
 				738A2B2A2579D5E900E662B9 /* Day04.swift in Sources */,
 				73264155258B30F80096D50E /* PointSet4D.swift in Sources */,
+				732854632592AF0B008B285A /* CharGrid+SeaMonsters.swift in Sources */,
 				7343611E2575E81B00FA8D7F /* Day01.swift in Sources */,
 				734361302575E94E00FA8D7F /* IntcodeVM.swift in Sources */,
 				734361312575E94E00FA8D7F /* Grid.swift in Sources */,
