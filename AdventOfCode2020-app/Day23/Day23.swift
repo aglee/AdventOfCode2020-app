@@ -13,12 +13,14 @@ class Cup {
 	}
 }
 
+/// Implements the game using a circular linked list of cups.
 class CupCircle {
 	var currentCup: Cup
 	var lookup = [Int: Cup]()
 
-	convenience init(_ s: String) {
-		let cupNumbers = s.map { Int(String($0))! }
+	/// It's assumed `digitString` contains the digits 1...n.
+	convenience init(_ digitString: String) {
+		let cupNumbers = digitString.map { Int(String($0))! }
 		self.init(cupNumbers: cupNumbers)
 	}
 
@@ -34,6 +36,8 @@ class CupCircle {
 		lookup[cupNumbers.last!]!.next = self.currentCup
 	}
 
+	/// This was mainly a convenience to not have force-unwrap dictionary lookups all over
+	/// the place, but it turned out not to be that many places.
 	func cupWithNumber(_ cupNumber: Int) -> Cup {
 		return lookup[cupNumber]!
 	}
@@ -52,7 +56,7 @@ class CupCircle {
 			return result
 		}
 
-		// Remove the next 3
+		// Remove the next 3 cups after the current cup.
 		let snippedNumbers = [currentCup.next.number, currentCup.next.next.number, currentCup.next.next.next.number]
 		let snipFirst = currentCup.next
 		let snipLast = currentCup.next.next.next
@@ -61,7 +65,7 @@ class CupCircle {
 		// Figure out the "destination" cup.
 		let dest = destCup()
 
-		// Splice the snipped cups after the destination.
+		// Splice the snipped cups back into the circle, after the destination cup.
 		snipLast.next = dest.next
 		dest.next = snipFirst
 
@@ -96,7 +100,7 @@ class CupCircle {
 
 class Day23: DayNN {
 	init() {
-		super.init("PUT_DESCRIPTION_HERE")
+		super.init("Crab Cups")
 		self.part1Tests = [
 			testPart1(fileNumber: 1, expectedResult: "67384529"),
 		]
@@ -116,8 +120,9 @@ class Day23: DayNN {
 	}
 
 	override func solvePart2(inputLines: [String]) -> String {
-		var cupNumbers = inputLines[0].map { Int(String($0))! }
-		for num in 10...1_000_000 {
+		let digits = inputLines[0]
+		var cupNumbers = digits.map { Int(String($0))! }
+		for num in (digits.count + 1)...1_000_000 {
 			cupNumbers.append(num)
 		}
 		let circ = CupCircle(cupNumbers: cupNumbers)
