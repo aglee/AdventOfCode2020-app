@@ -26,6 +26,13 @@
 		731816202585FE08008CAC8F /* Day14_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7318161A2585FE08008CAC8F /* Day14_TestInput01.txt */; };
 		731816212585FE08008CAC8F /* Day14_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 7318161B2585FE08008CAC8F /* Day14_Discussion.md */; };
 		7318162C25873DE1008CAC8F /* Day14_TestInput02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7318162B25873DE1008CAC8F /* Day14_TestInput02.txt */; };
+		731AD93225932D0C004E65AE /* Day24_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 731AD92C25932D0C004E65AE /* Day24_Discussion.md */; };
+		731AD93325932D0C004E65AE /* Day24_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 731AD92D25932D0C004E65AE /* Day24_Input.txt */; };
+		731AD93425932D0C004E65AE /* Day24_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 731AD92E25932D0C004E65AE /* Day24_TestInput01.txt */; };
+		731AD93525932D0C004E65AE /* Day24_Part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 731AD92F25932D0C004E65AE /* Day24_Part2.txt */; };
+		731AD93625932D0C004E65AE /* Day24_Part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 731AD93025932D0C004E65AE /* Day24_Part1.txt */; };
+		731AD93725932D0C004E65AE /* Day24.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731AD93125932D0C004E65AE /* Day24.swift */; };
+		731AD94225945CF9004E65AE /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731AD94125945CF9004E65AE /* Floor.swift */; };
 		732640CB2588018B0096D50E /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732640CA2588018A0096D50E /* Heap.swift */; };
 		732640EC25881C300096D50E /* Day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732640E625881C300096D50E /* Day15.swift */; };
 		732640ED25881C300096D50E /* Day15_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 732640E725881C300096D50E /* Day15_Input.txt */; };
@@ -219,6 +226,13 @@
 		7318161A2585FE08008CAC8F /* Day14_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day14_TestInput01.txt; sourceTree = "<group>"; };
 		7318161B2585FE08008CAC8F /* Day14_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day14_Discussion.md; sourceTree = "<group>"; };
 		7318162B25873DE1008CAC8F /* Day14_TestInput02.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Day14_TestInput02.txt; sourceTree = "<group>"; };
+		731AD92C25932D0C004E65AE /* Day24_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day24_Discussion.md; sourceTree = "<group>"; };
+		731AD92D25932D0C004E65AE /* Day24_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day24_Input.txt; sourceTree = "<group>"; };
+		731AD92E25932D0C004E65AE /* Day24_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day24_TestInput01.txt; sourceTree = "<group>"; };
+		731AD92F25932D0C004E65AE /* Day24_Part2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day24_Part2.txt; sourceTree = "<group>"; };
+		731AD93025932D0C004E65AE /* Day24_Part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day24_Part1.txt; sourceTree = "<group>"; };
+		731AD93125932D0C004E65AE /* Day24.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day24.swift; sourceTree = "<group>"; };
+		731AD94125945CF9004E65AE /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 		732640CA2588018A0096D50E /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		732640E625881C300096D50E /* Day15.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day15.swift; sourceTree = "<group>"; };
 		732640E725881C300096D50E /* Day15_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day15_Input.txt; sourceTree = "<group>"; };
@@ -449,6 +463,20 @@
 				731816182585FE08008CAC8F /* Day14.swift */,
 			);
 			path = Day14;
+			sourceTree = "<group>";
+		};
+		731AD92B25932D0C004E65AE /* Day24 */ = {
+			isa = PBXGroup;
+			children = (
+				731AD92C25932D0C004E65AE /* Day24_Discussion.md */,
+				731AD92D25932D0C004E65AE /* Day24_Input.txt */,
+				731AD93025932D0C004E65AE /* Day24_Part1.txt */,
+				731AD92F25932D0C004E65AE /* Day24_Part2.txt */,
+				731AD92E25932D0C004E65AE /* Day24_TestInput01.txt */,
+				731AD93125932D0C004E65AE /* Day24.swift */,
+				731AD94125945CF9004E65AE /* Floor.swift */,
+			);
+			path = Day24;
 			sourceTree = "<group>";
 		};
 		732640E425881C300096D50E /* Day15 */ = {
@@ -682,6 +710,7 @@
 				735A63F525906C7200A34F3C /* Day21 */,
 				735A64182591241D00A34F3C /* Day22 */,
 				7328543D2591DF96008B285A /* Day23 */,
+				731AD92B25932D0C004E65AE /* Day24 */,
 				7373BC332575CC0500622514 /* AppDelegate.swift */,
 				7373BC352575CC0700622514 /* Assets.xcassets */,
 				7373BC372575CC0700622514 /* MainMenu.xib */,
@@ -967,6 +996,7 @@
 				735A63E8258E00B400A34F3C /* Day20_Discussion.md in Resources */,
 				732641092588B9430096D50E /* Day16_Input.txt in Resources */,
 				735A64242591241D00A34F3C /* Day22_Part1.txt in Resources */,
+				731AD93225932D0C004E65AE /* Day24_Discussion.md in Resources */,
 				732640F025881C300096D50E /* Day15_Discussion.md in Resources */,
 				732854442591DF96008B285A /* Day23_Discussion.md in Resources */,
 				738A2B62257C4C7900E662B9 /* Day06_Part2.txt in Resources */,
@@ -1022,6 +1052,7 @@
 				7343617A2576291B00FA8D7F /* README.md in Resources */,
 				7354BD03258D9E1A0094CD0C /* Day19_Input.txt in Resources */,
 				738D9C872582225F0057511A /* Day11_Part1.txt in Resources */,
+				731AD93425932D0C004E65AE /* Day24_TestInput01.txt in Resources */,
 				7354BD00258D9E1A0094CD0C /* Day19_Part1.txt in Resources */,
 				735A640125906C7300A34F3C /* Day21_Discussion.md in Resources */,
 				738D9C10257CEDF10057511A /* Day07_TestInput01.txt in Resources */,
@@ -1031,6 +1062,7 @@
 				738D9C0E257CEDF10057511A /* Day07_Part1.txt in Resources */,
 				738D9C1C257E08CE0057511A /* Day07_TestInput02.txt in Resources */,
 				738D9C0C257CEDF10057511A /* Day07_Input.txt in Resources */,
+				731AD93525932D0C004E65AE /* Day24_Part2.txt in Resources */,
 				731816032584A0D2008CAC8F /* Day13_Part1.txt in Resources */,
 				738D9C2B257E1DE10057511A /* Day08_Part2.txt in Resources */,
 				738A2AE72577294100E662B9 /* Day02_Part2.txt in Resources */,
@@ -1041,6 +1073,7 @@
 				738D9C40257FFAC40057511A /* Day09_Discussion.md in Resources */,
 				738D9C43257FFAC40057511A /* Day09_Part2.txt in Resources */,
 				73436156257610F700FA8D7F /* Day01_TestInput01.txt in Resources */,
+				731AD93325932D0C004E65AE /* Day24_Input.txt in Resources */,
 				732854472591DF96008B285A /* Day23_Part2.txt in Resources */,
 				735A63FF25906C7300A34F3C /* Day21_Input.txt in Resources */,
 				7318161D2585FE08008CAC8F /* Day14_Part1.txt in Resources */,
@@ -1079,6 +1112,7 @@
 				7373BC862575D1E700622514 /* Day01_Part1.txt in Resources */,
 				732854482591DF96008B285A /* Day23_Part1.txt in Resources */,
 				738D9C45257FFAC40057511A /* Day09_TestInput01.txt in Resources */,
+				731AD93625932D0C004E65AE /* Day24_Part1.txt in Resources */,
 				73264174258B45580096D50E /* Day18_Part2.txt in Resources */,
 				738A2B48257B4BEC00E662B9 /* Day05_Input.txt in Resources */,
 				735A64232591241D00A34F3C /* Day22_TestInput01.txt in Resources */,
@@ -1118,6 +1152,7 @@
 				735A64202591241D00A34F3C /* Day22.swift in Sources */,
 				7343618525762D9700FA8D7F /* GridPoint.swift in Sources */,
 				738D9C6C2580BA020057511A /* Day10.swift in Sources */,
+				731AD93725932D0C004E65AE /* Day24.swift in Sources */,
 				735A640025906C7300A34F3C /* Day21.swift in Sources */,
 				734361402575E9F100FA8D7F /* Memory.swift in Sources */,
 				738D9C822582225F0057511A /* Day11.swift in Sources */,
@@ -1145,6 +1180,7 @@
 				735A64142590862600A34F3C /* Menu.swift in Sources */,
 				738A2B57257B656900E662B9 /* DayNN+Tests.swift in Sources */,
 				732854462591DF96008B285A /* Day23.swift in Sources */,
+				731AD94225945CF9004E65AE /* Floor.swift in Sources */,
 				735A63EB258E00B400A34F3C /* Day20.swift in Sources */,
 				732640CB2588018B0096D50E /* Heap.swift in Sources */,
 				738A2B66257C4C7900E662B9 /* Day06.swift in Sources */,
