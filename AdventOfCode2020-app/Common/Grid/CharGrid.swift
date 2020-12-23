@@ -1,26 +1,33 @@
 import Foundation
 
-/// A non-empty rectangular collection of 1-character strings -- basically syntactic sugar
-/// around a 2-dimensional array.
-class CharGrid: Equatable {
+//TODO: [agl] Make this generic.
+
+/// A non-empty 2-dimensional array of strings.  For Advent of Code, the elements are
+/// pretty much always single-character strings, but that is not enforced.
+struct CharGrid: Equatable {
 	private(set) var rows: [[String]]
 	var width: Int { return rows[0].count }
 	var height: Int { return rows.count }
+
+	init(rows: [[String]]) {
+		assert(rows.count > 0, "Must have at least one row.")
+		assert(rows[0].count > 0, "The strings in `inputLines` must be non-empty.")
+		assert(rows.filter { $0.count != rows[0].count }.count == 0,
+			   "The rows of a grid must all have the same number of elements.")
+		self.rows = rows
+	}
+
+	/// Initializes every element of the grid to be a single-character string.
+	init(inputLines: [String]) {
+		self.init(rows: inputLines.map { $0.map { String($0) } })
+	}
+
+	// MARK: - Point arithmetic
 
 	static let deltasIncludingDiagonals = [(-1, -1), (0, -1), (1, -1),
 										   (-1, 0),           (1, 0),
 										   (-1, 1),  (0, 1),  (1, 1)]
 	static let deltasWithoutDiagonals = [(0, -1), (-1, 0), (1, 0), (0, 1)]
-
-	init(inputLines: [String]) {
-		assert(inputLines.count > 0, "`inputLines` must be non-empty.")
-		assert(inputLines[0].count > 0, "The strings in `inputLines` must be non-empty.")
-		assert(
-			inputLines.filter({ $0.count != inputLines[0].count }).count == 0,
-			"The strings in `inputLines` must all have the same length."
-		)
-		self.rows = inputLines.map { $0.map { String($0) } }
-	}
 
 	func neighboringPoints(of point: GridPoint) -> [GridPoint] {
 		var result: [GridPoint] = []
@@ -43,16 +50,18 @@ class CharGrid: Equatable {
 		return isInBounds(point.x, point.y)
 	}
 
-	func flipLeftToRight() {
+	// MARK: - Matrix transforms
+
+	mutating func flipLeftToRight() {
 		rows = rows.map { $0.reversed() }
 	}
 
-	func flipTopToBottom() {
+	mutating func flipTopToBottom() {
 		rows = rows.reversed()
 	}
 
 	/// Rotates by 90 degrees.
-	func rotateCounterclockwise() {
+	mutating func rotateCounterclockwise() {
 		// Make a list of the grid's columns.  Rotating means those columns will become
 		// rows.  We reverse the list of columns because under counterclockwise rotation,
 		// the first column will become the last row.
@@ -60,6 +69,8 @@ class CharGrid: Equatable {
 			rows.map { $0[x] }  // Return the x'th column.
 		}.reversed()  // Reverse the resulting list of columns.
 	}
+
+	// MARK: - Debugging
 
 	func printGrid() {
 		for row in rows {

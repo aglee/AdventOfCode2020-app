@@ -21,7 +21,7 @@ class Day20: DayNN {
 
 	override func solvePart2(inputLines: [String]) -> String {
 		let tileSet = TileSet(inputLines)
-		let imageCharGrid = tileSet.assembledImage()
+		var imageCharGrid = tileSet.assembledImage()
 		imageCharGrid.flipAndRotateUntilSeaMonstersAreMarked()
 
 		var numHashes = 0

@@ -1,12 +1,8 @@
 import Foundation
 
-/// Grid for the toboggan problem.
-///
-/// According to the puzzle description:
-/// 
-/// - "#" means tree and "." means no tree.
-/// - The overall terrain consists of this grid repeated horizontally over and over.
-class Terrain: CharGrid {
+extension CharGrid {
+	/// "#" means tree and "." means no tree.  The overall terrain consists of this grid
+	/// repeated horizontally over and over.
 	func countTrees(deltaX: Int, deltaY: Int) -> Int {
 		var treesEncountered = 0
 
@@ -37,12 +33,12 @@ class Day03: DayNN {
 	// MARK: - Solving
 
 	override func solvePart1(inputLines: [String]) -> String {
-		let t = Terrain(inputLines: inputLines)
+		let t = CharGrid(inputLines: inputLines)
 		return String(t.countTrees(deltaX: 3, deltaY: 1))
 	}
 
 	override func solvePart2(inputLines: [String]) -> String {
-		let t = Terrain(inputLines: inputLines)
+		let t = CharGrid(inputLines: inputLines)
 		var result = 1
 		for (deltaX, deltaY) in [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)] {
 			result *= t.countTrees(deltaX: deltaX, deltaY: deltaY)

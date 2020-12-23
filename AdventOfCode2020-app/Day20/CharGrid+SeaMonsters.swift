@@ -3,7 +3,7 @@ import Foundation
 extension CharGrid {
 	/// Returns true if at least one sea monster was found.  It's assumed there is only
 	/// one orientation where this will return true.
-	private func markSeaMonsters() -> Bool {
+	private mutating func markSeaMonsters() -> Bool {
 		func monsterOffsets(_ s: String) -> [Int] {
 			let chars = s.map { String($0) }
 			return (0..<chars.count).filter { chars[$0] == "#" }
@@ -48,7 +48,7 @@ extension CharGrid {
 
 	/// Flip and rotate the grid until at least one sea monster is found.  Mark all
 	/// sea monsters in the resulting grid with "O".
-	func flipAndRotateUntilSeaMonstersAreMarked() {
+	mutating func flipAndRotateUntilSeaMonstersAreMarked() {
 		// Try all 4 rotations of the grid and see if we can satisfy the condition.
 		if markSeaMonsters() { return }
 		for _ in 0..<3 {

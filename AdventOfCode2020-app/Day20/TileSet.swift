@@ -2,7 +2,7 @@ import Foundation
 
 class Tile {
 	let number: Int
-	private let grid: CharGrid
+	private var grid: CharGrid
 	var possibleEdgeNumbers: [Int] {
 		return [
 			grid.rows.first!,
