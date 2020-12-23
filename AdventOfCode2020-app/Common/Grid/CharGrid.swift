@@ -2,19 +2,24 @@ import Foundation
 
 //TODO: [agl] Make this generic.
 
-/// A non-empty 2-dimensional array of strings.  For Advent of Code, the elements are
-/// pretty much always single-character strings, but that is not enforced.
+/// A 2-dimensional array of strings.  Some operations crash if the grid is empty.
+///
+/// For Advent of Code, the elements are pretty much always single-character strings, but
+/// that is not enforced.
 struct CharGrid: Equatable {
 	private(set) var rows: [[String]]
-	var width: Int { return rows[0].count }
+	var width: Int { return rows.count == 0 ? 0 : rows[0].count }
 	var height: Int { return rows.count }
 
 	init(rows: [[String]]) {
-		assert(rows.count > 0, "Must have at least one row.")
-		assert(rows[0].count > 0, "The strings in `inputLines` must be non-empty.")
-		assert(rows.filter { $0.count != rows[0].count }.count == 0,
+		assert(rows.count == 0 || (rows.filter { $0.count != rows[0].count }.count == 0),
 			   "The rows of a grid must all have the same number of elements.")
 		self.rows = rows
+	}
+
+	/// Returns an empty grid.
+	init() {
+		self.init(rows: [])
 	}
 
 	/// Initializes every element of the grid to be a single-character string.
@@ -50,7 +55,7 @@ struct CharGrid: Equatable {
 		return isInBounds(point.x, point.y)
 	}
 
-	// MARK: - Matrix transforms
+	// MARK: - Flipping and rotation
 
 	mutating func flipLeftToRight() {
 		rows = rows.map { $0.reversed() }
@@ -68,6 +73,44 @@ struct CharGrid: Equatable {
 		rows = (0..<width).map { x in  // For x in 0..<width.
 			rows.map { $0[x] }  // Return the x'th column.
 		}.reversed()  // Reverse the resulting list of columns.
+	}
+
+	// MARK: - Adding and removing rows
+
+	mutating func removeFirstRow() {
+		rows.removeFirst()
+	}
+
+	mutating func removeLastRow() {
+		rows.removeLast()
+	}
+
+	mutating func removeFirstColumn() {
+		rows = rows.map { Array($0[1..<$0.count]) }
+	}
+
+	mutating func removeLastColumn() {
+		rows = rows.map { Array($0[0..<($0.count - 1)]) }
+	}
+
+	mutating func appendRows(from otherGrid: CharGrid) {
+		if rows.isEmpty {
+			rows = otherGrid.rows
+		} else {
+			assert(width == otherGrid.width, "Grids have different widths.")
+			rows.append(contentsOf: otherGrid.rows)
+		}
+	}
+
+	mutating func appendColumns(from otherGrid: CharGrid) {
+		if rows.isEmpty {
+			rows = otherGrid.rows
+		} else {
+			assert(height == otherGrid.height, "Grids have different heights.")
+			for rowIndex in 0..<rows.count {
+				rows[rowIndex].append(contentsOf: otherGrid.rows[rowIndex])
+			}
+		}
 	}
 
 	// MARK: - Debugging
