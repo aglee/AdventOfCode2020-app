@@ -2,7 +2,7 @@ import Foundation
 
 class Tile {
 	let number: Int
-	private var grid: CharGrid
+	private(set) var grid: CharGrid
 	var possibleEdgeNumbers: [Int] {
 		return [
 			grid.rows.first!,
@@ -61,23 +61,6 @@ class Tile {
 		// The input data is supposed to be such that we never get here.  If we do,
 		// it's a bug.
 		abort()
-	}
-
-	func rowStringsWithoutEdges() -> [String] {
-		var rowsOfChars = grid.rows
-
-		// Remove the top and bottom edges.
-		rowsOfChars.removeFirst()
-		rowsOfChars.removeLast()
-
-		// Remove the left and right edges.
-		for rowIndex in 0..<rowsOfChars.count {
-			rowsOfChars[rowIndex].removeFirst()
-			rowsOfChars[rowIndex].removeLast()
-		}
-
-		// Convert the now-reduced rows to strings
-		return rowsOfChars.map { $0.joined() }
 	}
 
 	private func edgeToInt(_ chars: [String]) -> Int {

@@ -4,7 +4,7 @@ extension TileSet {
 	private func tileWhoseLeftEdgeMatchesTheRightEdgeOfTile(_ tile: Tile) -> Tile? {
 		let edgeNumberToMatch = tile.rightEdgeNumber
 		let bucket = tilesByPossibleEdgeNumber[edgeNumberToMatch]!
-//TODO:FIX				assert(bucket.contains(tile))
+		assert(bucket.contains { $0 === tile })
 		if bucket.count == 1 {
 			// There is no other tile that has `edgeNumberToMatch` as a possible edge number.
 			return nil
@@ -68,7 +68,7 @@ extension TileSet {
 			let tile = gridOfTiles[gridOfTiles.count - 1][0]
 			let bottomEdge = tile.bottomEdgeNumber
 			let bucket = tilesByPossibleEdgeNumber[bottomEdge]!
-//TODO: Fix			assert(bucket.contains(tileNumber))
+			assert(bucket.contains { $0 === tile })
 			if bucket.count == 1 {
 				// There is no tile we can match to this tile, which means we've reached
 				// the bottom edge of the image.
@@ -89,17 +89,20 @@ extension TileSet {
 	/// and combines the resulting tiles into a `CharGrid`.
 	func assembledImage() -> CharGrid {
 		let gridOfTiles = assembledGridOfTiles()
-		var linesForResult = [String]()
-
+		var imageGrid = CharGrid()
 		for rowOfTiles in gridOfTiles {
-			let stringsWithoutEdge = rowOfTiles.map { $0.rowStringsWithoutEdges() }
-			for rowIndexWithinTile in 0..<stringsWithoutEdge[0].count {
-				let combinedRowOfChars = stringsWithoutEdge.reduce("", {
-					$0 + $1[rowIndexWithinTile]
-				})
-				linesForResult.append(combinedRowOfChars)
+			let rowOfCharGridsWithEdgesRemoved: [CharGrid] = rowOfTiles.map {
+				var grid = $0.grid
+				grid.removeFirstRow()
+				grid.removeLastRow()
+				grid.removeFirstColumn()
+				grid.removeLastColumn()
+				return grid
 			}
+			let joinedRowOfCharGrids = rowOfCharGridsWithEdgesRemoved.reduce(into: CharGrid(), { $0.appendColumns(from: $1) })
+			imageGrid.appendRows(from: joinedRowOfCharGrids)
 		}
-		return CharGrid(inputLines: linesForResult)
+
+		return imageGrid
 	}
 }
