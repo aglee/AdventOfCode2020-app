@@ -37,7 +37,7 @@
 		731AD94E2595A41E004E65AE /* Day25_Part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 731AD9482595A41E004E65AE /* Day25_Part1.txt */; };
 		731AD94F2595A41E004E65AE /* Day25.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731AD9492595A41E004E65AE /* Day25.swift */; };
 		731AD9502595A41E004E65AE /* Day25_Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 731AD94A2595A41E004E65AE /* Day25_Input.txt */; };
-		731AD9512595A41E004E65AE /* Day25_Discussion.md in Resources */ = {isa = PBXBuildFile; fileRef = 731AD94B2595A41E004E65AE /* Day25_Discussion.md */; };
+		731AD9512595A41E004E65AE /* README.Day25.md in Resources */ = {isa = PBXBuildFile; fileRef = 731AD94B2595A41E004E65AE /* README.Day25.md */; };
 		731AD9522595A41E004E65AE /* Day25_TestInput01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 731AD94C2595A41E004E65AE /* Day25_TestInput01.txt */; };
 		732640CB2588018B0096D50E /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732640CA2588018A0096D50E /* Heap.swift */; };
 		732640EC25881C300096D50E /* Day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732640E625881C300096D50E /* Day15.swift */; };
@@ -243,7 +243,7 @@
 		731AD9482595A41E004E65AE /* Day25_Part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day25_Part1.txt; sourceTree = "<group>"; };
 		731AD9492595A41E004E65AE /* Day25.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day25.swift; sourceTree = "<group>"; };
 		731AD94A2595A41E004E65AE /* Day25_Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day25_Input.txt; sourceTree = "<group>"; };
-		731AD94B2595A41E004E65AE /* Day25_Discussion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Day25_Discussion.md; sourceTree = "<group>"; };
+		731AD94B2595A41E004E65AE /* README.Day25.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.Day25.md; sourceTree = "<group>"; };
 		731AD94C2595A41E004E65AE /* Day25_TestInput01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day25_TestInput01.txt; sourceTree = "<group>"; };
 		732640CA2588018A0096D50E /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		732640E625881C300096D50E /* Day15.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day15.swift; sourceTree = "<group>"; };
@@ -494,7 +494,7 @@
 		731AD9462595A41E004E65AE /* Day25 */ = {
 			isa = PBXGroup;
 			children = (
-				731AD94B2595A41E004E65AE /* Day25_Discussion.md */,
+				731AD94B2595A41E004E65AE /* README.Day25.md */,
 				731AD94A2595A41E004E65AE /* Day25_Input.txt */,
 				731AD9482595A41E004E65AE /* Day25_Part1.txt */,
 				731AD9472595A41E004E65AE /* Day25_Part2.txt */,
@@ -1081,7 +1081,7 @@
 				7354BD03258D9E1A0094CD0C /* Day19_Input.txt in Resources */,
 				738D9C872582225F0057511A /* Day11_Part1.txt in Resources */,
 				731AD93425932D0C004E65AE /* Day24_TestInput01.txt in Resources */,
-				731AD9512595A41E004E65AE /* Day25_Discussion.md in Resources */,
+				731AD9512595A41E004E65AE /* README.Day25.md in Resources */,
 				7354BD00258D9E1A0094CD0C /* Day19_Part1.txt in Resources */,
 				735A640125906C7300A34F3C /* Day21_Discussion.md in Resources */,
 				738D9C10257CEDF10057511A /* Day07_TestInput01.txt in Resources */,
