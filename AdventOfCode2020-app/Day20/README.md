@@ -2,7 +2,7 @@
 
 <https://adventofcode.com/2020/day/20>
 
-(TL;DR: For Part 1 I played dominoes, and rather than solve for the general case, I relied heavily on specific properties of the input.  In particular, for any edge of a given tile, there is at most one other tile that can possibly be adjacent at that edge.  For Part 2 I used brute-force comparisons of a pattern of array elements.  A common theme in both parts was applying every possible combination of flips and rotations to a grid until a condition is satisfied.)
+***[TL;DR: For Part 1 I played dominoes, and rather than solve for the general case, I relied heavily on specific properties of the input.  In particular, for any edge of a given tile, there is at most one other tile that can possibly be adjacent at that edge.  For Part 2 I used brute-force comparisons of a pattern of array elements.  A common theme in both parts was applying every possible combination of flips and rotations to a grid until a condition is satisfied.]***
 
 I used the concept of what I called an "edge number" -- treating characters on the edges of tiles as binary digits.  Accounting for flips and rotations, each tile has 8 possible edge numbers: 4 from the initial data, and the "reversals" of those 4 (rotations and flips cause the binary digits along edges on either 2 or 4 of the edges to be in the reverse order from the original).  Afterwards it occurred to me there wasn't actually any bitwise math involved in my solution, so maybe my solution would have run just fine if I'd used "edge strings" instead of "edge numbers".
 
