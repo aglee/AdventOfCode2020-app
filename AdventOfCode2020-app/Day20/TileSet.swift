@@ -41,28 +41,29 @@ class Tile {
 	/// Try all combinations of rotating and flipping the grid until the condition is
 	/// satisfied.
 	func flipAndRotateUntil(_ condition: () -> Bool) {
+		func rotateUntilConditionSatisfied() -> Bool {
+			if condition() { return true }
+			for _ in 0..<3 {
+				grid.rotateCounterclockwise()
+				if condition() { return true }
+			}
+			return false
+		}
+
 		// Rotate the grid and see if we can satisfy the condition.
-		for _ in 0..<4 {
-			grid.rotateCounterclockwise()
-			if condition() {
-				return
-			}
-		}
+		if rotateUntilConditionSatisfied() { return }
 
-		// Rotating the original grid didn't work.  Flip the grid and try again.
+		// Rotating the original grid didn't work.  Flip the grid and try again.  (It
+		// doesn't matter that the grid is currently a rotation of the original grid.)
 		grid.flipLeftToRight()
-		for _ in 0..<4 {
-			grid.rotateCounterclockwise()
-			if condition() {
-				return
-			}
-		}
+		if rotateUntilConditionSatisfied() { return }
 
-		// The input data is supposed to be such that we never get here.  If we do,
-		// it's a bug.
+		// The input data is supposed to be such that we never get here.
 		abort()
 	}
 
+	/// Calculates what I've been calling an "edge number", by treating characters as
+	/// binary digits.
 	private func edgeToInt(_ chars: [String]) -> Int {
 		var result = 0
 		for ch in chars {

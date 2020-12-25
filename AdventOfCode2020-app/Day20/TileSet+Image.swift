@@ -1,5 +1,6 @@
 import Foundation
 
+/// This extension exposes the `assembledImage` method.
 extension TileSet {
 	private func tileWhoseLeftEdgeMatchesTheRightEdgeOfTile(_ tile: Tile) -> Tile? {
 		let edgeNumberToMatch = tile.rightEdgeNumber
@@ -23,7 +24,7 @@ extension TileSet {
 	private func tileWhoseTopEdgeMatchesTheBottomEdgeOfTile(_ tile: Tile) -> Tile? {
 		let edgeNumberToMatch = tile.bottomEdgeNumber
 		let bucket = tilesByPossibleEdgeNumber[edgeNumberToMatch]!
-//TODO:FIX				assert(bucket.contains(tile))
+		assert(bucket.contains { $0 === tile })
 		if bucket.count == 1 {
 			// There is no other tile that has `edgeNumberToMatch` as a possible edge number.
 			return nil
@@ -40,6 +41,7 @@ extension TileSet {
 		abort()
 	}
 
+	/// Play "dominoes" with the tiles.
 	private func assembledGridOfTiles() -> [[Tile]] {
 		// Pick a corner tile and orient it to be the top left corner.
 		let topLeftTile = cornerTiles[0]
@@ -51,33 +53,28 @@ extension TileSet {
 		// Construct a grid of tiles, starting with the chosen top-left corner tile.
 		var gridOfTiles = [[topLeftTile]]
 		while true {
-			// The current last row of the image grid should have 1 element.
-			// Add tiles to the row until we can't any more.
+			// The current last row of the image grid should have 1 element.  Add tiles to
+			// the row until we can't any more.
 			assert(gridOfTiles[gridOfTiles.count - 1].count == 1)
 			while true {
 				let currentTile = gridOfTiles[gridOfTiles.count - 1].last!
 				if let nextTile = tileWhoseLeftEdgeMatchesTheRightEdgeOfTile(currentTile) {
 					gridOfTiles[gridOfTiles.count - 1].append(nextTile)
 				} else {
-					// We couldn't find a neighbor tile, so we must have reached the end of the row.
+					// We couldn't find a tile to add to the right of the current tile, so
+					// we must have reached the end of the row.
 					break
 				}
 			}
 
-			// Prepare to fill in the next row of the image grid by filling in its first tile.  If we can't, then the image grid is complete.
+			// Prepare to fill in the next row of the image grid by filling in the first
+			// tile in the row.
 			let tile = gridOfTiles[gridOfTiles.count - 1][0]
-			let bottomEdge = tile.bottomEdgeNumber
-			let bucket = tilesByPossibleEdgeNumber[bottomEdge]!
-			assert(bucket.contains { $0 === tile })
-			if bucket.count == 1 {
-				// There is no tile we can match to this tile, which means we've reached
-				// the bottom edge of the image.
-				break
-			}
 			if let nextTile = tileWhoseTopEdgeMatchesTheBottomEdgeOfTile(tile) {
 				gridOfTiles.append([nextTile])
 			} else {
-				// The image grid is complete.
+				// We can't find a tile with which to start a row below the current row,
+				// so the grid of tiles must be complete.
 				break
 			}
 		}
@@ -91,6 +88,7 @@ extension TileSet {
 		let gridOfTiles = assembledGridOfTiles()
 		var imageGrid = CharGrid()
 		for rowOfTiles in gridOfTiles {
+			// Remove the edges from all tiles in this row.
 			let rowOfCharGridsWithEdgesRemoved: [CharGrid] = rowOfTiles.map {
 				var grid = $0.grid
 				grid.removeFirstRow()
@@ -99,7 +97,11 @@ extension TileSet {
 				grid.removeLastColumn()
 				return grid
 			}
+
+			// Glue the resulting `CharGrid`s together into one long horizontal `CharGrid`.
 			let joinedRowOfCharGrids = rowOfCharGridsWithEdgesRemoved.reduce(into: CharGrid(), { $0.appendColumns(from: $1) })
+
+			// Add this horizontal strip to the bottom of the overall image we're constructing.
 			imageGrid.appendRows(from: joinedRowOfCharGrids)
 		}
 
