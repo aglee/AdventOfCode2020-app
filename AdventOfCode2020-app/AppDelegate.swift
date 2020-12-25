@@ -48,11 +48,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		print(day.solvePart1())
 		print()
 
-		print("--- Part 2 ---")
-		guard runTests(day.part2Tests) else { return }
-		print("Part 2 final answer is... ", terminator: "")
-		print(day.solvePart2())
-		print()
+//		print("--- Part 2 ---")
+//		guard runTests(day.part2Tests) else { return }
+//		print("Part 2 final answer is... ", terminator: "")
+//		print(day.solvePart2())
+//		print()
 	}
 }
 
