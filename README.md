@@ -1,5 +1,7 @@
 #  Advent of Code 2020
 
+[[See all 25 days here.](/AdventOfCode2020-app)]
+
 This year I took a different approach.  I did it all in Swift, with all 25 of the puzzles in a single Cocoa app.  My intention was to build a UI that displays a list of the 25 days.  The idea would be that I can click on any day in the list to run my solution for that day's puzzle and and read my notes about it.  Haven't gotten around to the UI part though.  Right now to run a given day's solution you have to go to `AppDelegate`, find where it calls `doOneDay(_:)`, and edit the argument to use that day.
 
 I figured on some days the puzzle will lend itself to some kind of visual display of the solution, perhaps with some sort of animation.  I wanted to figure out a way to do that when it makes sense.
