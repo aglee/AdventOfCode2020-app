@@ -2,7 +2,7 @@ import Foundation
 
 class Day25: DayNN {
 	init() {
-		super.init("PUT_DESCRIPTION_HERE")
+		super.init("Combo Breaker")
 		self.part1Tests = [
 			test(input: "5764801",
 				 function: { String(self.loopSizeProducingPublicKey(Int($0)!)) },
